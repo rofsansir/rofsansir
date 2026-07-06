@@ -43,6 +43,9 @@ const pastPapers = JSON.parse(
 const blogContent = JSON.parse(
     fs.readFileSync(path.join(ROOT, 'resources/js/data/blogContent.json'), 'utf8'),
 );
+const faqs = JSON.parse(
+    fs.readFileSync(path.join(ROOT, 'resources/js/data/faq.json'), 'utf8'),
+);
 
 const SITE_URL = seoConfig.siteUrl.replace(/\/$/, '');
 
@@ -120,6 +123,23 @@ for (const blog of blogContent) {
         ogImage: seoConfig.defaultOgImage,
         type: 'article',
     });
+}
+
+// ---- JSON-LD structured data -----------------------------------------------
+function buildJsonLd(r) {
+    if (r.path === '/faq' && faqs) {
+        const entries = [...(faqs.student || []), ...(faqs.parent || [])];
+        return {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: entries.map((e) => ({
+                '@type': 'Question',
+                name: e.question,
+                acceptedAnswer: { '@type': 'Answer', text: e.answer },
+            })),
+        };
+    }
+    return null;
 }
 
 // ---- HTML rewriting ---------------------------------------------------------
@@ -203,6 +223,14 @@ function renderHtml(r) {
     // Inject our fresh head tags right after <head ...>.
     const headBlock = `\n        ${buildHead(r)}\n    `;
     html = html.replace(/<head(\s[^>]*)?>/, `<head$1>${headBlock}`);
+
+    // Bake route-specific JSON-LD structured data into the static HTML so
+    // crawlers that don't run JS (and for rich-result reliability) still see it.
+    const jsonLd = buildJsonLd(r);
+    if (jsonLd) {
+        const script = `\n    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
+        html = html.replace('</head>', `${script}\n</head>`);
+    }
 
     return html;
 }

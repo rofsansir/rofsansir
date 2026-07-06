@@ -22,6 +22,7 @@ import {
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../../../components/SEO/SEO';
+import TableOfContents from '../../../components/TableOfContents';
 import StructuredData from '../../../components/SEO/StructuredData';
 import { AdmissionNow } from '../components/AdmissionNow';
 const AboutPage: React.FC = () => {
@@ -42,6 +43,18 @@ const AboutPage: React.FC = () => {
             <SEO path="/about" />
             <StructuredData type="person" />
             <StructuredData type="organization" />
+            <TableOfContents
+                items={[
+                    { id: 'experience', label: 'Experience & Leadership' },
+                    { id: 'examiner', label: 'Cambridge Examiner Insight' },
+                    { id: 'philosophy', label: 'Teaching Philosophy' },
+                    { id: 'methodology', label: 'Teaching Approach' },
+                    { id: 'curriculum', label: 'Curriculum & Assessment' },
+                    { id: 'different', label: 'What Makes Classes Different' },
+                    { id: 'publications', label: 'Books & Publications' },
+                    { id: 'gallery', label: 'Activity Gallery' },
+                ]}
+            />
             <div className="animate-fade-in-up min-h-screen pt-24">
             {/* Hero Section - Perfect match with backup */}
             <section className="relative overflow-hidden bg-brand-blue-dark py-24">
@@ -140,7 +153,7 @@ const AboutPage: React.FC = () => {
                 <div className="absolute top-0 right-0 h-full w-1/3 rounded-full bg-brand-blue/5 blur-[120px]"></div>
             </section>
             {/* Teaching Experience & Academic Leadership - Two Column with List */}
-            <section className="bg-slate-50 py-24">
+            <section id="experience" className="scroll-mt-28 bg-slate-50 py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">
@@ -353,7 +366,7 @@ const AboutPage: React.FC = () => {
                 </div>
             </section>
             {/* Cambridge Examiner Insight - Two Column + Image */}
-            <section className="bg-slate-50 py-24">
+            <section id="examiner" className="scroll-mt-28 bg-slate-50 py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">
@@ -451,7 +464,7 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* Teaching Philosophy - Split with Image */}
-            <section className="bg-white py-24">
+            <section id="philosophy" className="scroll-mt-28 bg-white py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">
@@ -569,7 +582,7 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* My Teaching Approach - Methodology */}
-            <section className="bg-slate-50 py-24">
+            <section id="methodology" className="scroll-mt-28 bg-slate-50 py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-navy uppercase">
@@ -637,7 +650,7 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* Curriculum & Assessment - Split Layout */}
-            <section className="bg-slate-50 py-24">
+            <section id="curriculum" className="scroll-mt-28 bg-slate-50 py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">
@@ -724,7 +737,7 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* What Makes My Classes Different */}
-            <section className="bg-white py-24">
+            <section id="different" className="scroll-mt-28 bg-white py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">
@@ -796,7 +809,7 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* Academic Resources & Publications - Bold Showcase */}
-            <section className="bg-white py-24">
+            <section id="publications" className="scroll-mt-28 bg-white py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 text-center">
                         <div className="mb-6 inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">
@@ -927,7 +940,7 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* Activity Gallery Section */}
-            <section className="overflow-hidden bg-white py-24">
+            <section id="gallery" className="scroll-mt-28 overflow-hidden bg-white py-24">
                 <div className="mx-auto max-w-7xl px-4 md:px-8">
                     <div className="mb-16 space-y-4 text-center">
                         <div className="inline-flex items-center space-x-2 rounded-full bg-brand-blue/10 px-4 py-1.5 text-xs font-black tracking-widest text-brand-blue uppercase">

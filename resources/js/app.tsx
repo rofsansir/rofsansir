@@ -11,6 +11,7 @@ import ClassVIIIPage from './features/public/pages/ClassVIIIPage';
 import ClassXPage from './features/public/pages/ClassXPage';
 import ContactPage from './features/public/pages/ContactPage';
 import ExaminerTipsPage from './features/public/pages/ExaminerTipsPage';
+import FAQPage from './features/public/pages/FAQPage';
 import HomePage from './features/public/pages/HomePage';
 import PastPaperDetailPage from './features/public/pages/PastPaperDetailPage';
 import PrivacyPolicyPage from './features/public/pages/PrivacyPolicyPage';
@@ -100,6 +101,7 @@ const AppContent: React.FC = () => {
                     <Route path="/past-papers/:slug" element={<PastPaperDetailPage />} />
                     <Route path="/tips" element={<ExaminerTipsPage />} />
                     <Route path="/tips/:id" element={<ExaminerTipsPage />} />
+                    <Route path="/faq" element={<FAQPage />} />
                     <Route path="/courses" element={<RoutinePage />} />
                     <Route path="/class-8" element={<ClassVIIIPage />} />
                     <Route path="/class-viii" element={<ClassVIIIPage />} />

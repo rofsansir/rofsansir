@@ -16,6 +16,7 @@ import SEO from '../../../components/SEO/SEO';
 import VideoCard from '../../../components/VideoCard';
 import YouTubeEmbed from '../../../components/YouTubeEmbed';
 import blogContent from '../../../data/blogContent.json';
+import { FAQS } from '../../../data/faq';
 import videoData from '../../../data/videoData.json';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({
@@ -71,101 +72,8 @@ const ExaminerTipsPage: React.FC = () => {
         video.pages.includes('tips'),
     );
 
-    const studentFAQs = [
-        {
-            question: 'Is O Level Bengali very difficult?',
-            answer: 'No. O Level Bengali becomes difficult only when it is approached with fear or memorization. With clear explanations, structured practice, and regular feedback, Bengali becomes manageable and confidence-building.',
-        },
-        {
-            question:
-                'I study in English-medium. Can I still do well in Bengali?',
-            answer: 'Yes. Cambridge O Level Bengali is designed with English-medium learners in mind. Many English-medium students achieve strong results when Bengali is taught clearly, step by step, and in an exam-focused way.',
-        },
-        {
-            question:
-                'When is the best time to start preparing for O Level Bengali?',
-            answer: 'The earlier, the better. \n• Class VIII: Ideal for building strong foundations without pressure \n• Class IX: Best time to develop writing skills and exam understanding \n• Class X: Focused revision and exam practice Students who start earlier usually feel less stress, write better answers, and perform more consistently in exams.',
-        },
-        {
-            question: 'Can I improve if I start late?',
-            answer: 'Yes, improvement is possible even for late starters. However, students who start earlier benefit from: \n• Better writing confidence \n• Fewer repeated mistakes \n• Stronger exam awareness Late starters need structured planning and regular mock tests, but progress is achievable with the right guidance.',
-        },
-        {
-            question: 'Do I need to memorize essays, letters, or answers?',
-            answer: 'No. Memorization is not recommended. Cambridge exams reward: \n• Clear ideas \n• Logical structure \n• Appropriate language use Understanding how to write is far more important than memorizing what to write.',
-        },
-        {
-            question: 'Which paper is harder: Paper 01 or Paper 02?',
-            answer: 'Both papers test different skills: \n• Paper 01 (Composition): Writing, idea organization, structure, clarity \n• Paper 02 (Language & Comprehension): Reading, vocabulary, grammar accuracy, understanding unseen passages With regular practice and mock exams, both papers become manageable.',
-        },
-        {
-            question:
-                'I make spelling and grammar mistakes. Can I still score well?',
-            answer: 'Yes. This is very common among English-medium students. Improvement comes from: \n• Sentence practice \n• Vocabulary building \n• Correcting repeated mistakes through feedback With guidance, spelling and grammar improve steadily.',
-        },
-        {
-            question: 'Are mock tests really important?',
-            answer: 'Yes. Mock tests are one of the most important parts of preparation because they help you: \n• Practice writing under exam conditions \n• Understand timing \n• Identify weak areas early \n• Organize ideas more clearly Mock exams are tools for improvement—not judgement.',
-        },
-        {
-            question: 'How is Rofsan Sir’s teaching different?',
-            answer: 'Rofsan Sir’s teaching is known for being: \n• Clear and structured \n• Calm and student-friendly \n• Highly exam-focused without pressure \n \n Students especially benefit from: \n• Detailed and honest feedback \n• Regular topical and full mock exams \n• Clear explanation of mistakes \n• Guidance on how to improve step by step Many students say his teaching style makes Bengali feel simpler and more manageable.',
-        },
-        {
-            question:
-                'Will studying with Rofsan Sir help if I am weak in Bengali?',
-            answer: 'Yes. Special care is given to students who feel weak or afraid of Bengali. Lessons focus on: \n• Building confidence first \n• Simplifying complex topics \n• Helping students organize their thoughts clearly Even students who join late or feel insecure can improve with consistent practice.',
-        },
-        {
-            question: 'Will Bengali affect my other subjects?',
-            answer: 'No. In fact, Bengali often helps other subjects by improving: \n• Writing clarity \n• Thinking structure \n• Expression of ideas These skills are useful across many O Level subjects.',
-        },
-    ];
-
-    const parentFAQs = [
-        {
-            question:
-                'Is O Level Bangla compulsory for English-medium students?',
-            answer: 'O Level Bangla বাধ্যতামূলক না হলেও এটি একটি অত্যন্ত গুরুত্বপূর্ণ ও ভবিষ্যৎবান্ধব বিষয়। Cambridge O Level Bangla শিক্ষার্থীদের ভাষাগত দক্ষতা, চিন্তার গভীরতা এবং একাডেমিক লেখার সক্ষমতা উন্নত করে, যা পরবর্তী AS/A Level ও বিশ্ববিদ্যালয় পর্যায়ে সরাসরি কাজে লাগে।',
-        },
-        {
-            question:
-                'Will studying Bangla affect my child’s English performance?',
-            answer: 'না। বরং গবেষণা ও Cambridge syllabus অনুযায়ী দেখা যায়—মাতৃভাষায় সুগঠিত চিন্তার সক্ষমতা দ্বিতীয় ভাষার (English) academic writing ও critical thinking আরও শক্তিশালী করে। সঠিকভাবে পড়ানো O Level Bangla English-এর জন্য সহায়ক ভূমিকা রাখে।',
-        },
-        {
-            question: 'Is O Level Bangla based on memorization?',
-            answer: 'না। Cambridge O Level Bangla সম্পূর্ণভাবে understanding, interpretation, and expression-ভিত্তিক। মুখস্থ উত্তর দিলে বরং নম্বর কমে যায়, কারণ:\n• Comprehension questions-এ own-word responses প্রয়োজন \n• Composition-এ idea organisation ও clarity মূল্যায়ন করা হয়',
-        },
-        {
-            question: 'My child is weak in Bangla. Can they still do well?',
-            answer: 'হ্যাঁ। English-medium শিক্ষার্থীদের জন্য Bangla challenging হলেও সঠিক guidance, structured practice এবং step-by-step approach থাকলে উন্নতি সম্ভব। syllabus-এ ব্যবহৃত ভাষা ও task structure English-medium learners মাথায় রেখেই তৈরি।',
-        },
-        {
-            question: 'How much time is required daily for Bangla preparation?',
-            answer: 'প্রতিদিন ২৫–৪৫ মিনিট নিয়মিত পড়াশোনা করলেই যথেষ্ট। \n• Bangla-র ক্ষেত্রে consistency বেশি গুরুত্বপূর্ণ, দীর্ঘ সময় একসাথে পড়া নয়।',
-        },
-        {
-            question: 'What are the exam papers like?',
-            answer: 'Cambridge O Level Bangla consists of two papers:\n• Paper 01 – Composition (45%) Letter, report, dialogue, speech & essay writing \n• Paper 02 – Language & Comprehension (55%) Vocabulary, grammar, sentence transformation, cloze passage, and reading comprehension দুটো paper-ই syllabus অনুযায়ী logical thinking ও language skill যাচাই করে।',
-        },
-        {
-            question: 'Does O Level Bangla help in university admission?',
-            answer: 'হ্যাঁ। Cambridge O Level Bangla একটি internationally recognised qualification। এটি university application-এ শিক্ষার্থীর:\n• Academic breadth \n• Writing ability \n• Analytical skill প্রকাশ করে, যা holistic evaluation-এ ইতিবাচক ভূমিকা রাখে।',
-        },
-        {
-            question: 'Will Bangla increase exam pressure?',
-            answer: 'ভুল প্রস্তুতির কারণে চাপ তৈরি হয়, বিষয়টির কারণে নয়। Structured preparation, regular assessment ও proper feedback থাকলে Bangla manageable এবং stress-free হয়ে ওঠে।',
-        },
-        {
-            question: 'What kind of assessment support should a student get?',
-            answer: 'Effective preparation includes:\n• Topic-wise practice \n• Regular mock tests \n• Clear feedback on mistakes \n• Exam-oriented answer writing guidance এই প্রক্রিয়াগুলো syllabus অনুযায়ী পরিচালিত হলে ফলাফল উন্নত হয়।',
-        },
-        {
-            question: 'Is Bangla only useful for GPA?',
-            answer: 'না। GPA ছাড়াও Bangla দীর্ঘমেয়াদে সহায়তা করে: \n• Academic writing \n• Critical thinking \n• Structured expression \n• Reading comprehension এগুলো বিশ্ববিদ্যালয় ও পেশাগত জীবনে অত্যন্ত গুরুত্বপূর্ণ দক্ষতা।',
-        },
-    ];
+    const studentFAQs = FAQS.student;
+    const parentFAQs = FAQS.parent;
 
     // Check URL parameter for blog ID
     useEffect(() => {

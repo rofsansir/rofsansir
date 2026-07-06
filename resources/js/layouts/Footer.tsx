@@ -119,6 +119,14 @@ const Footer: React.FC = () => {
                                         Study Materials
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        to="/faq"
+                                        className="text-sm text-slate-300 transition-colors hover:text-brand-blue-light"
+                                    >
+                                        FAQ
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 

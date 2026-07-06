@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import React from 'react';
 
 interface StructuredDataProps {
-    type?: 'organization' | 'person' | 'course' | 'article' | 'breadcrumb';
+    type?: 'organization' | 'person' | 'course' | 'article' | 'breadcrumb' | 'faq';
     data?: any;
 }
 
@@ -131,6 +131,24 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type = 'organization', 
 
             case 'breadcrumb':
                 return data || {};
+
+            case 'faq': {
+                // Expects data = FAQEntry[] (flattened, all categories).
+                const entries: Array<{ question: string; answer: string }> =
+                    data || [];
+                return {
+                    '@context': 'https://schema.org',
+                    '@type': 'FAQPage',
+                    mainEntity: entries.map((e) => ({
+                        '@type': 'Question',
+                        name: e.question,
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: e.answer,
+                        },
+                    })),
+                };
+            }
 
             default:
                 return {};
