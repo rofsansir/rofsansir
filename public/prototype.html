@@ -3,20 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rofsan Sir  O Level Bengali | Redesign Prototype</title>
+        <title>Rofsan Sir  O Level Bengali | Redesign Prototype v3</title>
         <meta
             name="description"
             content="Prototype redesign: Master O Level Bengali with CAIE Examiner Rofsan Sir. Hall of Fame, gallery, testimonials and books."
         />
 
-        <!-- Tailwind Play CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Fonts: Fraunces (editorial serif) + Inter -->
+        <!-- Bricolage Grotesque (display) + Inter (body) -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
 
@@ -25,30 +24,30 @@
                 theme: {
                     extend: {
                         colors: {
-                            cream: '#f6f1e7',
-                            paper: '#fffdfa',
-                            forest: {
-                                DEFAULT: '#103a2c',
-                                2: '#15543d',
-                                3: '#1e6b4e',
+                            cream: '#f3ede1',
+                            paper: '#fbf7ef',
+                            ink: '#221a15',
+                            plum: {
+                                DEFAULT: '#382033',
+                                2: '#4a2b42',
+                                3: '#5e3852',
                             },
-                            moss: '#2e6b50',
-                            gold: {
-                                DEFAULT: '#bd9445',
-                                soft: '#e6d3a3',
-                                deep: '#9c7430',
+                            marigold: {
+                                DEFAULT: '#e2a039',
+                                soft: '#f1c878',
+                                deep: '#b97a23',
                             },
-                            clay: '#bd5638',
-                            ink: '#1b2a22',
-                            muted: '#6b7a6e',
+                            rose: '#c7654f',
+                            teal: '#1f5550',
+                            muted: '#73665b',
                         },
                         fontFamily: {
-                            serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+                            display: ['"Bricolage Grotesque"', 'Inter', 'sans-serif'],
                             body: ['Inter', 'sans-serif'],
                         },
                         boxShadow: {
-                            soft: '0 20px 60px -25px rgba(16,58,44,0.28)',
-                            card: '0 12px 40px -18px rgba(16,58,44,0.22)',
+                            luxe: '0 30px 80px -30px rgba(56,32,51,0.35)',
+                            card: '0 14px 40px -20px rgba(56,32,51,0.22)',
                         },
                     },
                 },
@@ -63,37 +62,28 @@
                 font-family: 'Inter', sans-serif;
             }
 
-            /* Page texture: warm grain via subtle layered gradients */
             .bg-grain {
                 background-image:
-                    radial-gradient(circle at 12% 18%, rgba(189, 148, 69, 0.06), transparent 42%),
-                    radial-gradient(circle at 88% 12%, rgba(16, 58, 44, 0.05), transparent 40%);
+                    radial-gradient(circle at 85% 8%, rgba(226, 160, 57, 0.12), transparent 38%),
+                    radial-gradient(circle at 5% 95%, rgba(56, 32, 51, 0.08), transparent 40%);
             }
 
-            /* Marquees */
             @keyframes marquee {
-                from {
-                    transform: translateX(0);
-                }
-                to {
-                    transform: translateX(-50%);
-                }
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
             }
-            .animate-marquee {
-                animation: marquee 48s linear infinite;
-            }
-            .animate-marquee-slow {
-                animation: marquee 65s linear infinite;
-            }
+            .animate-marquee { animation: marquee 30s linear infinite; }
+            .animate-marquee-md { animation: marquee 48s linear infinite; }
+            .animate-marquee-slow { animation: marquee 70s linear infinite; }
             .marquee-pause:hover .animate-marquee,
+            .marquee-pause:hover .animate-marquee-md,
             .marquee-pause:hover .animate-marquee-slow {
                 animation-play-state: paused;
             }
 
-            /* Reveal */
             .reveal {
                 opacity: 0;
-                transform: translateY(26px);
+                transform: translateY(28px);
                 transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
                     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
             }
@@ -101,165 +91,217 @@
                 opacity: 1;
                 transform: none;
             }
+            .text-balance { text-wrap: balance; }
 
-            .text-balance {
-                text-wrap: balance;
-            }
-
-            /* Eyebrow rule */
-            .eyebrow-line::before {
-                content: '';
-                display: inline-block;
-                width: 1.75rem;
-                height: 1px;
-                margin-right: 0.6rem;
-                vertical-align: middle;
-                background: currentColor;
-                opacity: 0.5;
-            }
-
-            /* Subtle film-grain noise overlay for dark sections */
-            .noise {
-                position: relative;
-            }
+            .noise { position: relative; }
             .noise::after {
                 content: '';
                 position: absolute;
                 inset: 0;
                 pointer-events: none;
-                opacity: 0.04;
+                opacity: 0.045;
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            }
+
+            /* outline display number */
+            .num-outline {
+                -webkit-text-stroke: 1.5px rgba(226, 160, 57, 0.55);
+                color: transparent;
             }
         </style>
     </head>
 
-    <body class="bg-cream bg-grain font-body text-ink antialiased selection:bg-gold/30">
+    <body class="bg-cream bg-grain font-body text-ink antialiased selection:bg-marigold/30">
         <!-- ============================ NAV ============================ -->
         <header id="nav" class="fixed inset-x-0 top-0 z-50">
             <div class="mx-auto max-w-7xl px-4 md:px-6">
                 <div
                     id="navInner"
-                    class="mt-3 flex items-center justify-between rounded-2xl border border-ink/5 bg-paper/80 px-4 py-2.5 shadow-sm backdrop-blur-md transition-all duration-300 md:px-5"
+                    class="mt-3 flex items-center justify-between rounded-full border border-ink/5 bg-paper/80 px-5 py-2.5 shadow-sm backdrop-blur-md transition-all duration-300"
                 >
                     <a href="#" class="flex items-center gap-2">
-                        <img src="assets/brand-logo.png" alt="Rofsan Sir" class="h-10 w-auto md:h-11" />
+                        <img src="assets/brand-logo.png" alt="Rofsan Sir" class="h-9 w-auto md:h-10" />
                     </a>
 
                     <nav class="hidden items-center gap-1 lg:flex">
-                        <a href="#home" class="rounded-lg px-3 py-2 text-sm font-semibold text-ink/70 transition hover:bg-forest/5 hover:text-forest">Home</a>
-                        <a href="#about" class="rounded-lg px-3 py-2 text-sm font-semibold text-ink/70 transition hover:bg-forest/5 hover:text-forest">About</a>
-                        <a href="#fame" class="rounded-lg px-3 py-2 text-sm font-semibold text-ink/70 transition hover:bg-forest/5 hover:text-forest">Hall of Fame</a>
-                        <a href="#gallery" class="rounded-lg px-3 py-2 text-sm font-semibold text-ink/70 transition hover:bg-forest/5 hover:text-forest">Gallery</a>
-                        <a href="#voices" class="rounded-lg px-3 py-2 text-sm font-semibold text-ink/70 transition hover:bg-forest/5 hover:text-forest">Reviews</a>
-                        <a href="#books" class="rounded-lg px-3 py-2 text-sm font-semibold text-ink/70 transition hover:bg-forest/5 hover:text-forest">Books</a>
+                        <a href="#home" class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-plum/5 hover:text-plum">Home</a>
+                        <a href="#video" class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-plum/5 hover:text-plum">About</a>
+                        <a href="#fame" class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-plum/5 hover:text-plum">Hall of Fame</a>
+                        <a href="#gallery" class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-plum/5 hover:text-plum">Gallery</a>
+                        <a href="#voices" class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-plum/5 hover:text-plum">Reviews</a>
+                        <a href="#books" class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-plum/5 hover:text-plum">Books</a>
                     </nav>
 
                     <div class="flex items-center gap-2">
-                        <a href="#admission" class="hidden rounded-xl bg-forest px-4 py-2.5 text-sm font-bold text-cream shadow-sm transition hover:-translate-y-0.5 hover:bg-forest-2 sm:inline-block">
+                        <a href="#admission" class="group hidden items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-cream shadow-sm transition hover:-translate-y-0.5 hover:bg-plum sm:inline-flex">
                             Book a Free Class
+                            <span class="grid h-5 w-5 place-items-center rounded-full bg-marigold text-ink transition group-hover:rotate-45">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </span>
                         </a>
-                        <button id="menuBtn" class="rounded-lg p-2 text-forest lg:hidden" aria-label="Open menu">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+                        <button id="menuBtn" class="rounded-full p-2 text-ink lg:hidden" aria-label="Open menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                         </button>
                     </div>
                 </div>
 
-                <div id="mobileMenu" class="hidden mt-2 rounded-2xl border border-ink/5 bg-paper/95 p-3 shadow-lg backdrop-blur lg:hidden">
-                    <a href="#home" class="block rounded-lg px-4 py-2.5 font-semibold text-ink hover:bg-forest/5">Home</a>
-                    <a href="#about" class="block rounded-lg px-4 py-2.5 font-semibold text-ink hover:bg-forest/5">About</a>
-                    <a href="#fame" class="block rounded-lg px-4 py-2.5 font-semibold text-ink hover:bg-forest/5">Hall of Fame</a>
-                    <a href="#gallery" class="block rounded-lg px-4 py-2.5 font-semibold text-ink hover:bg-forest/5">Gallery</a>
-                    <a href="#voices" class="block rounded-lg px-4 py-2.5 font-semibold text-ink hover:bg-forest/5">Reviews</a>
-                    <a href="#books" class="block rounded-lg px-4 py-2.5 font-semibold text-ink hover:bg-forest/5">Books</a>
-                    <a href="#admission" class="mt-1 block rounded-xl bg-forest px-4 py-3 text-center font-bold text-cream">Book a Free Class</a>
+                <div id="mobileMenu" class="hidden mt-2 rounded-3xl border border-ink/5 bg-paper/95 p-3 shadow-lg backdrop-blur lg:hidden">
+                    <a href="#home" class="block rounded-xl px-4 py-2.5 font-semibold text-ink hover:bg-plum/5">Home</a>
+                    <a href="#video" class="block rounded-xl px-4 py-2.5 font-semibold text-ink hover:bg-plum/5">About</a>
+                    <a href="#fame" class="block rounded-xl px-4 py-2.5 font-semibold text-ink hover:bg-plum/5">Hall of Fame</a>
+                    <a href="#gallery" class="block rounded-xl px-4 py-2.5 font-semibold text-ink hover:bg-plum/5">Gallery</a>
+                    <a href="#voices" class="block rounded-xl px-4 py-2.5 font-semibold text-ink hover:bg-plum/5">Reviews</a>
+                    <a href="#books" class="block rounded-xl px-4 py-2.5 font-semibold text-ink hover:bg-plum/5">Books</a>
+                    <a href="#admission" class="mt-1 block rounded-xl bg-ink px-4 py-3 text-center font-bold text-cream">Book a Free Class</a>
                 </div>
             </div>
         </header>
 
         <!-- ============================ HERO ============================ -->
-        <section id="home" class="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
-            <div class="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-gold/15 blur-3xl"></div>
-            <div class="pointer-events-none absolute -bottom-40 -left-24 h-[28rem] w-[28rem] rounded-full bg-forest/10 blur-3xl"></div>
+        <section id="home" class="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-20">
+            <div class="pointer-events-none absolute -top-32 -right-24 h-[30rem] w-[30rem] rounded-full bg-marigold/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute -bottom-40 -left-32 h-[30rem] w-[30rem] rounded-full bg-plum/10 blur-3xl"></div>
 
-            <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+            <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+                <!-- copy -->
                 <div class="reveal">
-                    <span class="eyebrow-line inline-flex items-center text-xs font-semibold tracking-[0.25em] text-gold-deep uppercase">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-marigold/30 bg-marigold/10 px-4 py-1.5 text-xs font-bold tracking-wider text-marigold-deep uppercase">
+                        <span class="h-2 w-2 rounded-full bg-marigold"></span>
                         CAIE Examiner · 8+ Years
                     </span>
 
-                    <h1 class="font-serif mt-5 text-[2.6rem] leading-[1.04] font-semibold tracking-tight text-forest text-balance sm:text-6xl lg:text-[4.2rem]">
-                        The clear path to
-                        <span class="relative whitespace-nowrap">
-                            <em class="font-normal italic text-gold-deep">A*</em>
-                            <svg class="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" preserveAspectRatio="none" fill="none"><path d="M2 7C40 3 80 3 120 5s60 2 78 1" stroke="#bd9445" stroke-width="2.5" stroke-linecap="round" /></svg>
+                    <h1 class="font-display mt-5 text-[2.7rem] leading-[1.02] font-bold tracking-tight text-ink text-balance sm:text-6xl lg:text-[4.4rem]">
+                        Your route to
+                        <span class="relative inline-block text-marigold-deep">
+                            A*
+                            <svg class="absolute -bottom-2 left-0 w-full" height="9" viewBox="0 0 200 9" preserveAspectRatio="none" fill="none"><path d="M2 6C40 2 80 2 120 4s60 2 78 1" stroke="#e2a039" stroke-width="3" stroke-linecap="round"/></svg>
                         </span>
                         in O Level Bengali
                     </h1>
 
-                    <p class="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
-                        English-medium students learn Bengali the clear, exam-focused way guided by a Cambridge examiner who has mentored <strong class="font-semibold text-forest">3,000+ students</strong> and authored <strong class="font-semibold text-forest">5 guidebooks</strong>.
+                    <p class="mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+                        English-medium students learn Bengali the clear, exam-focused way, guided by a Cambridge examiner who makes the subject finally feel simple.
                     </p>
 
-                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a href="#admission" class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-forest px-7 py-3.5 text-sm font-bold text-cream shadow-soft transition hover:-translate-y-0.5 hover:bg-forest-2">
-                            Book a Free Class
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition group-hover:translate-x-0.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-                        </a>
-                        <a href="#books" class="inline-flex items-center justify-center rounded-2xl border border-forest/15 bg-paper/60 px-7 py-3.5 text-sm font-bold text-forest transition hover:border-forest hover:bg-forest hover:text-cream">
-                            Explore the Books
-                        </a>
-                    </div>
+                    <!-- BULLET CHECKLIST (from the original site) -->
+                    <ul class="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                        <li class="flex items-center gap-3">
+                            <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-marigold/15 text-marigold-deep">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            <span class="text-[15px] font-semibold text-ink">8+ Years Experience</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-marigold/15 text-marigold-deep">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            <span class="text-[15px] font-semibold text-ink">3000+ Students Mentored</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-marigold/15 text-marigold-deep">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            <span class="text-[15px] font-semibold text-ink">Author of 5 Textbooks</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-marigold/15 text-marigold-deep">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            <span class="text-[15px] font-semibold text-ink">98% A* &amp; A Success Rate</span>
+                        </li>
+                    </ul>
 
-                    <!-- stat strip -->
-                    <div class="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-forest/10 pt-6">
-                        <div>
-                            <p class="font-serif text-3xl font-semibold text-forest">98%</p>
-                            <p class="mt-1 text-xs text-muted">A* &amp; A results</p>
-                        </div>
-                        <div>
-                            <p class="font-serif text-3xl font-semibold text-forest">3k+</p>
-                            <p class="mt-1 text-xs text-muted">Students mentored</p>
-                        </div>
-                        <div>
-                            <p class="font-serif text-3xl font-semibold text-forest">5</p>
-                            <p class="mt-1 text-xs text-muted">Published books</p>
-                        </div>
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a href="#admission" class="group inline-flex items-center justify-center gap-2 rounded-full bg-marigold px-7 py-3.5 text-sm font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-marigold-soft">
+                            Start Learning
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="transition group-hover:translate-x-0.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                        <a href="#books" class="inline-flex items-center justify-center rounded-full border border-ink/15 bg-paper/60 px-7 py-3.5 text-sm font-bold text-ink transition hover:border-ink hover:bg-ink hover:text-cream">
+                            View Books
+                        </a>
                     </div>
                 </div>
 
-                <!-- portrait -->
+                <!-- portrait cluster -->
                 <div class="reveal relative mx-auto w-full max-w-md lg:max-w-none">
-                    <div class="absolute -inset-3 rotate-2 rounded-[2.6rem] border border-gold/40"></div>
-                    <div class="absolute -inset-1.5 -rotate-1 rounded-[2.6rem] bg-gradient-to-tr from-forest/15 to-gold/15"></div>
-                    <div class="relative overflow-hidden rounded-[2.4rem] shadow-soft">
+                    <!-- decorative starburst -->
+                    <svg class="pointer-events-none absolute -top-8 -right-6 h-24 w-24 text-marigold/60 animate-spin" style="animation-duration: 26s" viewBox="0 0 100 100" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="50" y1="2" x2="50" y2="18"/><line x1="50" y1="82" x2="50" y2="98"/><line x1="2" y1="50" x2="18" y2="50"/><line x1="82" y1="50" x2="98" y2="50"/><line x1="14" y1="14" x2="26" y2="26"/><line x1="74" y1="74" x2="86" y2="86"/><line x1="86" y1="14" x2="74" y2="26"/><line x1="26" y1="74" x2="14" y2="86"/></g></svg>
+
+                    <div class="absolute -inset-2 rotate-2 rounded-[2.6rem] bg-gradient-to-tr from-marigold/40 to-plum/15"></div>
+                    <div class="relative overflow-hidden rounded-[2.4rem] border-[5px] border-paper shadow-luxe">
                         <img src="assets/teacher/1.jpg" alt="Rofsan Sir" class="aspect-[4/5] w-full object-cover" />
-                        <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-forest/45 to-transparent"></div>
+                        <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/50 to-transparent"></div>
                     </div>
 
-                    <!-- floating credential card -->
-                    <div class="absolute -bottom-5 -left-2 flex items-center gap-3 rounded-2xl border border-ink/5 bg-paper/95 p-3 pr-5 shadow-card backdrop-blur md:-left-6">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#bd9445" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+                    <!-- floating result chip -->
+                    <div class="absolute -top-4 -left-3 flex items-center gap-3 rounded-2xl border border-ink/5 bg-paper/95 p-3 pr-5 shadow-luxe backdrop-blur md:-left-7">
+                        <div class="grid h-11 w-11 place-items-center rounded-xl bg-marigold text-ink">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
                         <div>
-                            <p class="font-serif text-sm font-semibold leading-none text-forest">Examiner &amp; Author</p>
-                            <p class="mt-1 text-[10px] font-semibold tracking-widest text-muted uppercase">Cambridge O Level</p>
+                            <p class="font-display text-base font-bold leading-none">98% A* &amp; A</p>
+                            <p class="mt-1 text-[10px] font-bold tracking-widest text-muted uppercase">Success Rate</p>
                         </div>
+                    </div>
+
+                    <!-- floating student pill -->
+                    <div class="absolute -bottom-5 right-2 flex items-center gap-2 rounded-full border border-ink/5 bg-paper/95 py-1.5 pr-4 pl-1.5 shadow-card backdrop-blur">
+                        <div class="flex -space-x-2">
+                            <img src="assets/students/prioman.jpg" class="h-8 w-8 rounded-full border-2 border-paper object-cover" alt="" />
+                            <img src="assets/students/farhan.jpeg" class="h-8 w-8 rounded-full border-2 border-paper object-cover" alt="" />
+                            <img src="assets/students/maida.jpg" class="h-8 w-8 rounded-full border-2 border-paper object-cover" alt="" />
+                        </div>
+                        <span class="text-xs font-bold text-ink">3,000+ students</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ============================ TRUST STRIP ============================ -->
+        <section class="border-y border-ink/5 bg-paper/60 py-6">
+            <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-4 md:px-6">
+                <span class="text-[11px] font-bold tracking-widest text-muted uppercase">Trusted curriculum &amp; boards</span>
+                <img src="logos/cambridge-logo.png" class="h-8 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" alt="Cambridge" />
+                <img src="logos/edexcellogo.png" class="h-8 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" alt="Edexcel" />
+                <img src="logos/ELITES.png" class="h-8 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" alt="Elites" />
+            </div>
+        </section>
+
+        <!-- ============================ ACHIEVEMENT TICKER ============================ -->
+        <div class="marquee-pause overflow-hidden bg-plum py-4 text-cream">
+            <div class="flex w-max animate-marquee">
+                <div class="flex shrink-0 items-center gap-8 pr-8">
+                    <span class="font-display text-lg font-bold text-marigold-soft">A*</span><span class="text-marigold/40">✦</span>
+                    <span class="text-sm font-semibold">99 marks</span><span class="text-marigold/40">✦</span>
+                    <span class="font-display text-lg font-bold text-marigold-soft">3000+ students</span><span class="text-marigold/40">✦</span>
+                    <span class="text-sm font-semibold">Cambridge Examiner</span><span class="text-marigold/40">✦</span>
+                    <span class="font-display text-lg font-bold text-marigold-soft">5 published books</span><span class="text-marigold/40">✦</span>
+                    <span class="text-sm font-semibold">8+ years</span><span class="text-marigold/40">✦</span>
+                </div>
+                <div class="flex shrink-0 items-center gap-8 pr-8" aria-hidden="true">
+                    <span class="font-display text-lg font-bold text-marigold-soft">A*</span><span class="text-marigold/40">✦</span>
+                    <span class="text-sm font-semibold">99 marks</span><span class="text-marigold/40">✦</span>
+                    <span class="font-display text-lg font-bold text-marigold-soft">3000+ students</span><span class="text-marigold/40">✦</span>
+                    <span class="text-sm font-semibold">Cambridge Examiner</span><span class="text-marigold/40">✦</span>
+                    <span class="font-display text-lg font-bold text-marigold-soft">5 published books</span><span class="text-marigold/40">✦</span>
+                    <span class="text-sm font-semibold">8+ years</span><span class="text-marigold/40">✦</span>
+                </div>
+            </div>
+        </div>
+
         <!-- ============================ VIDEO ============================ -->
-        <section id="about" class="relative py-14 md:py-20">
+        <section id="video" class="relative py-16 md:py-24">
             <div class="mx-auto max-w-5xl px-4 md:px-6">
-                <div class="reveal mb-8 text-center">
-                    <span class="eyebrow-line inline-flex text-xs font-semibold tracking-[0.25em] text-gold-deep uppercase">Meet Your Teacher</span>
-                    <h2 class="font-serif mt-3 text-3xl font-semibold tracking-tight text-forest md:text-5xl">Learn from the examiner's lens</h2>
+                <div class="reveal mb-8 flex items-end justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-marigold-deep uppercase">Meet your teacher</span>
+                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight text-ink md:text-5xl">Learn from the examiner's lens</h2>
+                    </div>
+                    <span class="num-outline font-display hidden text-7xl font-bold leading-none md:block">01</span>
                 </div>
                 <div class="reveal relative">
-                    <div class="absolute -inset-2 -z-10 rounded-[2rem] bg-gradient-to-tr from-forest/10 to-gold/15 blur-sm"></div>
-                    <div class="overflow-hidden rounded-[1.8rem] border-[6px] border-paper shadow-soft">
+                    <div class="absolute -inset-2 -z-10 rounded-[2rem] bg-gradient-to-tr from-marigold/20 to-plum/15 blur-sm"></div>
+                    <div class="overflow-hidden rounded-[1.8rem] border-[6px] border-paper shadow-luxe">
                         <div class="aspect-video w-full">
                             <iframe class="h-full w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Rofsan Sir  O Level Bengali" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -269,104 +311,106 @@
         </section>
 
         <!-- ============================ HALL OF FAME ============================ -->
-        <section id="fame" class="noise relative overflow-hidden bg-forest py-16 text-cream md:py-24">
-            <div class="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-gold/20 blur-3xl"></div>
-            <div class="pointer-events-none absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-forest-3/40 blur-3xl"></div>
+        <section id="fame" class="noise relative overflow-hidden bg-plum py-16 text-cream md:py-24">
+            <div class="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-marigold/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-plum-3/50 blur-3xl"></div>
 
             <div class="relative mx-auto max-w-7xl px-4 md:px-6">
-                <div class="reveal mb-12 text-center">
-                    <span class="eyebrow-line inline-flex text-xs font-semibold tracking-[0.25em] text-gold-soft uppercase">Hall of Fame</span>
-                    <h2 class="font-serif mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Our A* achievers</h2>
-                    <p class="mx-auto mt-3 max-w-2xl text-sm text-cream/70 md:text-base">Real students, real results. The faces behind the grades that make us proud.</p>
+                <div class="reveal mb-12 flex items-end justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-marigold-soft uppercase">Hall of Fame</span>
+                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight md:text-5xl">Our A* achievers</h2>
+                        <p class="mt-3 max-w-xl text-sm text-cream/70 md:text-base">Real students, real results. The faces behind the grades that make us proud.</p>
+                    </div>
+                    <span class="font-display hidden text-7xl font-bold leading-none md:block" style="-webkit-text-stroke: 1.5px rgba(241,200,120,0.5); color: transparent;">02</span>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                    <!-- cards -->
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/prioman.jpg" alt="Prioman" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-forest shadow">A*</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-marigold px-2.5 py-1 text-xs font-bold text-ink shadow">A*</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Prioman</p>
+                            <p class="font-display text-base font-bold leading-tight">Prioman</p>
                             <p class="text-[11px] text-cream/70">World Heights · 2023</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/apurva.jpg" alt="Apurva Sahil" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-forest shadow">A*</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-marigold px-2.5 py-1 text-xs font-bold text-ink shadow">A*</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Apurva Sahil</p>
+                            <p class="font-display text-base font-bold leading-tight">Apurva Sahil</p>
                             <p class="text-[11px] text-cream/70">O Level · 2021</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/maida.jpg" alt="Maida Naz" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-forest shadow">A*</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-marigold px-2.5 py-1 text-xs font-bold text-ink shadow">A*</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Maida Naz</p>
+                            <p class="font-display text-base font-bold leading-tight">Maida Naz</p>
                             <p class="text-[11px] text-cream/70">O Level · 2023</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/farhan.jpeg" alt="Farhan Ahmad" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-forest shadow">A*</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-marigold px-2.5 py-1 text-xs font-bold text-ink shadow">A*</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Farhan Ahmad</p>
+                            <p class="font-display text-base font-bold leading-tight">Farhan Ahmad</p>
                             <p class="text-[11px] text-cream/70">99 marks · 2023</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/raiyat.jpg" alt="Raiyat Karim" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-forest shadow">A*</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-marigold px-2.5 py-1 text-xs font-bold text-ink shadow">A*</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Raiyat Karim</p>
+                            <p class="font-display text-base font-bold leading-tight">Raiyat Karim</p>
                             <p class="text-[11px] text-cream/70">O Level · 2025</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/akib.png" alt="Akib Azwad" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-forest shadow">A*</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-marigold px-2.5 py-1 text-xs font-bold text-ink shadow">A*</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Akib Azwad</p>
+                            <p class="font-display text-base font-bold leading-tight">Akib Azwad</p>
                             <p class="text-[11px] text-cream/70">O Level · 2025</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/ayoka.jpg" alt="Ayoka Paul" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-cream px-2.5 py-1 text-xs font-bold text-forest shadow">A</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-cream px-2.5 py-1 text-xs font-bold text-plum shadow">A</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Ayoka Paul</p>
+                            <p class="font-display text-base font-bold leading-tight">Ayoka Paul</p>
                             <p class="text-[11px] text-cream/70">O Level · 2023</p>
                         </div>
                     </div>
-                    <div class="reveal group relative overflow-hidden rounded-2xl bg-cream/5 ring-1 ring-cream/10">
+                    <div class="reveal group relative overflow-hidden rounded-3xl bg-cream/5 ring-1 ring-cream/10">
                         <div class="relative aspect-[4/5] overflow-hidden">
                             <img src="assets/students/suprova.png" alt="Suprova Barua" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/15 to-transparent"></div>
-                            <span class="absolute top-3 right-3 rounded-full bg-cream px-2.5 py-1 text-xs font-bold text-forest shadow">89%</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/15 to-transparent"></div>
+                            <span class="absolute top-3 right-3 rounded-full bg-cream px-2.5 py-1 text-xs font-bold text-plum shadow">89%</span>
                         </div>
                         <div class="absolute bottom-0 p-4">
-                            <p class="font-serif text-base font-semibold leading-tight">Suprova Barua</p>
+                            <p class="font-display text-base font-bold leading-tight">Suprova Barua</p>
                             <p class="text-[11px] text-cream/70">O Level · 2025</p>
                         </div>
                     </div>
@@ -377,33 +421,34 @@
         <!-- ============================ GALLERY (auto slide) ============================ -->
         <section id="gallery" class="py-16 md:py-24">
             <div class="mx-auto mb-10 max-w-7xl px-4 md:px-6">
-                <div class="reveal text-center">
-                    <span class="eyebrow-line inline-flex text-xs font-semibold tracking-[0.25em] text-gold-deep uppercase">Life at the Batch</span>
-                    <h2 class="font-serif mt-3 text-3xl font-semibold tracking-tight text-forest md:text-5xl">Inside the classroom</h2>
-                    <p class="mx-auto mt-3 max-w-2xl text-sm text-muted md:text-base">A glimpse of the energy, focus and community your child joins.</p>
+                <div class="reveal flex items-end justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-marigold-deep uppercase">Life at the batch</span>
+                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight text-ink md:text-5xl">Inside the classroom</h2>
+                    </div>
+                    <span class="num-outline font-display hidden text-7xl font-bold leading-none md:block">03</span>
                 </div>
             </div>
 
             <div class="marquee-pause relative overflow-hidden">
                 <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-cream to-transparent md:w-32"></div>
                 <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-cream to-transparent md:w-32"></div>
-
-                <div class="flex w-max animate-marquee">
+                <div class="flex w-max animate-marquee-md">
                     <div class="flex shrink-0 gap-4 pr-4">
-                        <img src="assets/class-banner/ClassX.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
-                        <img src="assets/teacher/5.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
-                        <img src="assets/class-banner/ClassIX.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
-                        <img src="assets/teacher/2.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
-                        <img src="assets/class-banner/ClassVIII.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
-                        <img src="assets/teacher/3.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
+                        <img src="assets/class-banner/ClassX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
+                        <img src="assets/teacher/5.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
+                        <img src="assets/class-banner/ClassIX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
+                        <img src="assets/teacher/2.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
+                        <img src="assets/class-banner/ClassVIII.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
+                        <img src="assets/teacher/3.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
                     </div>
                     <div class="flex shrink-0 gap-4 pr-4" aria-hidden="true">
-                        <img src="assets/class-banner/ClassX.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/teacher/5.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/class-banner/ClassIX.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/teacher/2.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/class-banner/ClassVIII.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/teacher/3.jpg" class="h-56 w-[22rem] shrink-0 rounded-2xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
+                        <img src="assets/class-banner/ClassX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
+                        <img src="assets/teacher/5.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
+                        <img src="assets/class-banner/ClassIX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
+                        <img src="assets/teacher/2.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
+                        <img src="assets/class-banner/ClassVIII.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
+                        <img src="assets/teacher/3.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
                     </div>
                 </div>
             </div>
@@ -412,65 +457,68 @@
         <!-- ============================ TESTIMONIALS ============================ -->
         <section id="voices" class="bg-paper py-16 md:py-24">
             <div class="mx-auto max-w-7xl px-4 md:px-6">
-                <div class="reveal mb-12 text-center">
-                    <span class="eyebrow-line inline-flex text-xs font-semibold tracking-[0.25em] text-gold-deep uppercase">Student Voices</span>
-                    <h2 class="font-serif mt-3 text-3xl font-semibold tracking-tight text-forest md:text-5xl">Loved by students &amp; parents</h2>
+                <div class="reveal mb-12 flex items-end justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-marigold-deep uppercase">Student voices</span>
+                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight text-ink md:text-5xl">Loved by students &amp; parents</h2>
+                    </div>
+                    <span class="num-outline font-display hidden text-7xl font-bold leading-none md:block">04</span>
                 </div>
 
                 <div class="grid gap-5 md:grid-cols-3">
-                    <figure class="reveal relative flex flex-col rounded-3xl border border-ink/5 bg-cream/40 p-7 shadow-card">
-                        <span class="font-serif absolute -top-4 left-6 text-6xl leading-none text-gold/50">&ldquo;</span>
-                        <div class="mb-3 flex gap-0.5 text-gold">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                    <figure class="reveal relative flex flex-col rounded-[1.8rem] border border-ink/5 bg-cream/50 p-7 shadow-card">
+                        <span class="font-display absolute -top-5 left-6 text-7xl leading-none text-marigold/50">&ldquo;</span>
+                        <div class="mb-3 flex gap-0.5 text-marigold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <blockquote class="flex-1 font-serif text-[15px] leading-relaxed text-ink/80">Detailed feedback and targeted mock exams gave me the clarity I needed. His positive, interactive environment motivated me to reach my full potential.</blockquote>
-                        <figcaption class="mt-6 flex items-center gap-3 border-t border-forest/10 pt-4">
-                            <img src="assets/students/prioman.jpg" class="h-11 w-11 rounded-full border-2 border-gold/40 object-cover" alt="Prioman" />
+                        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink/80">Detailed feedback and targeted mock exams gave me the clarity I needed. His positive, interactive environment motivated me to reach my full potential.</blockquote>
+                        <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/5 pt-4">
+                            <img src="assets/students/prioman.jpg" class="h-11 w-11 rounded-full border-2 border-marigold/50 object-cover" alt="Prioman" />
                             <div>
-                                <p class="text-sm font-bold text-forest">Prioman</p>
-                                <p class="text-xs text-muted"><span class="font-semibold text-gold-deep">A*</span> · World Heights · 2023</p>
+                                <p class="text-sm font-bold text-ink">Prioman</p>
+                                <p class="text-xs text-muted"><span class="font-bold text-marigold-deep">A*</span> · World Heights · 2023</p>
                             </div>
                         </figcaption>
                     </figure>
 
-                    <figure class="reveal relative flex flex-col rounded-3xl border border-ink/5 bg-cream/40 p-7 shadow-card">
-                        <span class="font-serif absolute -top-4 left-6 text-6xl leading-none text-gold/50">&ldquo;</span>
-                        <div class="mb-3 flex gap-0.5 text-gold">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                    <figure class="reveal relative flex flex-col rounded-[1.8rem] border border-ink/5 bg-cream/50 p-7 shadow-card">
+                        <span class="font-display absolute -top-5 left-6 text-7xl leading-none text-marigold/50">&ldquo;</span>
+                        <div class="mb-3 flex gap-0.5 text-marigold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <blockquote class="flex-1 font-serif text-[15px] leading-relaxed text-ink/80">Achieved 99 marks with Sir's guidance. Regular mocks and past-paper discussions improved my understanding consistently.</blockquote>
-                        <figcaption class="mt-6 flex items-center gap-3 border-t border-forest/10 pt-4">
-                            <img src="assets/students/farhan.jpeg" class="h-11 w-11 rounded-full border-2 border-gold/40 object-cover" alt="Farhan" />
+                        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink/80">Achieved 99 marks with Sir's guidance. Regular mocks and past-paper discussions improved my understanding consistently.</blockquote>
+                        <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/5 pt-4">
+                            <img src="assets/students/farhan.jpeg" class="h-11 w-11 rounded-full border-2 border-marigold/50 object-cover" alt="Farhan" />
                             <div>
-                                <p class="text-sm font-bold text-forest">Farhan Ahmad</p>
-                                <p class="text-xs text-muted"><span class="font-semibold text-gold-deep">A*</span> · CAIE · 2023</p>
+                                <p class="text-sm font-bold text-ink">Farhan Ahmad</p>
+                                <p class="text-xs text-muted"><span class="font-bold text-marigold-deep">A*</span> · CAIE · 2023</p>
                             </div>
                         </figcaption>
                     </figure>
 
-                    <figure class="reveal relative flex flex-col rounded-3xl border border-ink/5 bg-cream/40 p-7 shadow-card">
-                        <span class="font-serif absolute -top-4 left-6 text-6xl leading-none text-gold/50">&ldquo;</span>
-                        <div class="mb-3 flex gap-0.5 text-gold">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                    <figure class="reveal relative flex flex-col rounded-[1.8rem] border border-ink/5 bg-cream/50 p-7 shadow-card">
+                        <span class="font-display absolute -top-5 left-6 text-7xl leading-none text-marigold/50">&ldquo;</span>
+                        <div class="mb-3 flex gap-0.5 text-marigold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <blockquote class="flex-1 font-serif text-[15px] leading-relaxed text-ink/80">Bangla changed from my most feared subject to favourite. His calming classes and cultural stories made learning enjoyable.</blockquote>
-                        <figcaption class="mt-6 flex items-center gap-3 border-t border-forest/10 pt-4">
-                            <img src="assets/students/suprova.png" class="h-11 w-11 rounded-full border-2 border-gold/40 object-cover" alt="Suprova" />
+                        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink/80">Bangla changed from my most feared subject to favourite. His calming classes and cultural stories made learning enjoyable.</blockquote>
+                        <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/5 pt-4">
+                            <img src="assets/students/suprova.png" class="h-11 w-11 rounded-full border-2 border-marigold/50 object-cover" alt="Suprova" />
                             <div>
-                                <p class="text-sm font-bold text-forest">Suprova Barua</p>
-                                <p class="text-xs text-muted"><span class="font-semibold text-forest">89%</span> · O Level · 2025</p>
+                                <p class="text-sm font-bold text-ink">Suprova Barua</p>
+                                <p class="text-xs text-muted"><span class="font-bold text-ink">89%</span> · O Level · 2025</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -479,53 +527,54 @@
         </section>
 
         <!-- ============================ BOOKS (auto slide) ============================ -->
-        <section id="books" class="noise relative overflow-hidden bg-forest py-16 text-cream md:py-24">
-            <div class="pointer-events-none absolute -top-20 left-1/4 h-72 w-72 rounded-full bg-gold/15 blur-3xl"></div>
+        <section id="books" class="noise relative overflow-hidden bg-plum py-16 text-cream md:py-24">
+            <div class="pointer-events-none absolute -top-20 left-1/4 h-72 w-72 rounded-full bg-marigold/15 blur-3xl"></div>
 
             <div class="relative mx-auto mb-10 max-w-7xl px-4 md:px-6">
-                <div class="reveal text-center">
-                    <span class="eyebrow-line inline-flex text-xs font-semibold tracking-[0.25em] text-gold-soft uppercase">Author of 5 Guidebooks</span>
-                    <h2 class="font-serif mt-3 text-3xl font-semibold tracking-tight md:text-5xl">The O Level Bengali bookshelf</h2>
-                    <p class="mx-auto mt-3 max-w-2xl text-sm text-cream/70 md:text-base">Structured, exam-focused books trusted by English-medium students.</p>
+                <div class="reveal flex items-end justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-marigold-soft uppercase">Author of 5 guidebooks</span>
+                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight md:text-5xl">The O Level Bengali bookshelf</h2>
+                    </div>
+                    <span class="font-display hidden text-7xl font-bold leading-none md:block" style="-webkit-text-stroke: 1.5px rgba(241,200,120,0.5); color: transparent;">05</span>
                 </div>
             </div>
 
             <div class="marquee-pause relative overflow-hidden">
-                <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-forest to-transparent md:w-32"></div>
-                <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-forest to-transparent md:w-32"></div>
-
+                <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-plum to-transparent md:w-32"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-plum to-transparent md:w-32"></div>
                 <div class="flex w-max animate-marquee-slow">
                     <div class="flex shrink-0 gap-6 pr-6">
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10">
-                            <div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/1.png" class="aspect-[3/4] w-full object-contain" alt="Basic Plus" /></div>
-                            <p class="font-serif mt-3 text-base font-semibold">Basic Plus</p>
-                            <span class="mt-1.5 inline-block rounded-full bg-gold/20 px-2 py-0.5 text-[10px] font-bold tracking-wider text-gold-soft uppercase">Essential</span>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10">
+                            <div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/1.png" class="aspect-[3/4] w-full object-contain" alt="Basic Plus" /></div>
+                            <p class="font-display mt-3 text-base font-bold">Basic Plus</p>
+                            <span class="mt-1.5 inline-block rounded-full bg-marigold/20 px-2 py-0.5 text-[10px] font-bold tracking-wider text-marigold-soft uppercase">Essential</span>
                         </article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10">
-                            <div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/2.png" class="aspect-[3/4] w-full object-contain" alt="Composition Plus" /></div>
-                            <p class="font-serif mt-3 text-base font-semibold">Composition Plus</p>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10">
+                            <div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/2.png" class="aspect-[3/4] w-full object-contain" alt="Composition Plus" /></div>
+                            <p class="font-display mt-3 text-base font-bold">Composition Plus</p>
                         </article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10">
-                            <div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/3.png" class="aspect-[3/4] w-full object-contain" alt="Practice Plus" /></div>
-                            <p class="font-serif mt-3 text-base font-semibold">Practice Plus</p>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10">
+                            <div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/3.png" class="aspect-[3/4] w-full object-contain" alt="Practice Plus" /></div>
+                            <p class="font-display mt-3 text-base font-bold">Practice Plus</p>
                             <span class="mt-1.5 inline-block rounded-full bg-cream/10 px-2 py-0.5 text-[10px] font-bold tracking-wider text-cream/80 uppercase">Exam Prep</span>
                         </article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10">
-                            <div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/4.png" class="aspect-[3/4] w-full object-contain" alt="Revision Plus" /></div>
-                            <p class="font-serif mt-3 text-base font-semibold">Revision Plus</p>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10">
+                            <div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/4.png" class="aspect-[3/4] w-full object-contain" alt="Revision Plus" /></div>
+                            <p class="font-display mt-3 text-base font-bold">Revision Plus</p>
                         </article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10">
-                            <div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/5.png" class="aspect-[3/4] w-full object-contain" alt="Foundation Plus" /></div>
-                            <p class="font-serif mt-3 text-base font-semibold">Foundation Plus</p>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10">
+                            <div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/5.png" class="aspect-[3/4] w-full object-contain" alt="Foundation Plus" /></div>
+                            <p class="font-display mt-3 text-base font-bold">Foundation Plus</p>
                             <span class="mt-1.5 inline-block rounded-full bg-emerald-300/20 px-2 py-0.5 text-[10px] font-bold tracking-wider text-emerald-200 uppercase">New</span>
                         </article>
                     </div>
                     <div class="flex shrink-0 gap-6 pr-6" aria-hidden="true">
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/1.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-serif mt-3 text-base font-semibold">Basic Plus</p></article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/2.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-serif mt-3 text-base font-semibold">Composition Plus</p></article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/3.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-serif mt-3 text-base font-semibold">Practice Plus</p></article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/4.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-serif mt-3 text-base font-semibold">Revision Plus</p></article>
-                        <article class="w-56 shrink-0 rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-xl bg-cream p-2 shadow-md"><img src="assets/books/5.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-serif mt-3 text-base font-semibold">Foundation Plus</p></article>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/1.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-display mt-3 text-base font-bold">Basic Plus</p></article>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/2.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-display mt-3 text-base font-bold">Composition Plus</p></article>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/3.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-display mt-3 text-base font-bold">Practice Plus</p></article>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/4.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-display mt-3 text-base font-bold">Revision Plus</p></article>
+                        <article class="w-56 shrink-0 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10"><div class="overflow-hidden rounded-2xl bg-cream p-2 shadow-md"><img src="assets/books/5.png" class="aspect-[3/4] w-full object-contain" alt="" /></div><p class="font-display mt-3 text-base font-bold">Foundation Plus</p></article>
                     </div>
                 </div>
             </div>
@@ -534,15 +583,15 @@
         <!-- ============================ ADMISSION CTA ============================ -->
         <section id="admission" class="py-16 md:py-24">
             <div class="mx-auto max-w-5xl px-4 md:px-6">
-                <div class="noise reveal relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-forest via-forest-2 to-forest px-6 py-14 text-center text-cream shadow-soft md:px-12 md:py-16">
-                    <div class="pointer-events-none absolute -top-16 -right-10 h-56 w-56 rounded-full bg-gold/25 blur-3xl"></div>
-                    <div class="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-forest-3/50 blur-3xl"></div>
-                    <span class="eyebrow-line relative inline-flex text-xs font-semibold tracking-[0.25em] text-gold-soft uppercase">Admission Open</span>
-                    <h2 class="font-serif relative mt-4 text-3xl font-semibold tracking-tight md:text-5xl">Ready to aim for <em class="font-normal italic text-gold-soft">A*</em>?</h2>
+                <div class="noise reveal relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-plum via-plum-2 to-ink px-6 py-14 text-center text-cream shadow-luxe md:px-12 md:py-16">
+                    <div class="pointer-events-none absolute -top-16 -right-10 h-56 w-56 rounded-full bg-marigold/30 blur-3xl"></div>
+                    <div class="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-plum-3/60 blur-3xl"></div>
+                    <span class="relative inline-flex items-center gap-2 rounded-full border border-marigold/30 bg-marigold/10 px-4 py-1.5 text-xs font-bold tracking-wider text-marigold-soft uppercase">Admission Open</span>
+                    <h2 class="font-display relative mt-4 text-3xl font-bold tracking-tight md:text-6xl">Ready to aim for <span class="text-marigold">A*</span>?</h2>
                     <p class="relative mx-auto mt-3 max-w-xl text-sm text-cream/80 md:text-base">Book a free consultation with Rofsan Sir and find the right batch for your child.</p>
                     <div class="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                        <a href="https://wa.me/8801948116595" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-2xl bg-gold px-7 py-3.5 text-sm font-bold text-forest transition hover:-translate-y-0.5 hover:bg-gold-soft">WhatsApp Rofsan Sir</a>
-                        <a href="tel:+8801948116595" class="inline-flex items-center justify-center rounded-2xl border border-cream/30 px-7 py-3.5 text-sm font-bold text-cream transition hover:bg-cream/10">Call +880 1948 116595</a>
+                        <a href="https://wa.me/8801948116595" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-marigold px-7 py-3.5 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-soft">WhatsApp Rofsan Sir</a>
+                        <a href="tel:+8801948116595" class="inline-flex items-center justify-center rounded-full border border-cream/30 px-7 py-3.5 text-sm font-bold text-cream transition hover:bg-cream/10">Call +880 1948 116595</a>
                     </div>
                 </div>
             </div>
@@ -555,7 +604,7 @@
                     <img src="assets/brand-logo-white.svg" alt="Rofsan Sir" class="h-16" />
                     <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
                         <a href="#home" class="transition hover:text-cream">Home</a>
-                        <a href="#about" class="transition hover:text-cream">About</a>
+                        <a href="#video" class="transition hover:text-cream">About</a>
                         <a href="#fame" class="transition hover:text-cream">Hall of Fame</a>
                         <a href="#gallery" class="transition hover:text-cream">Gallery</a>
                         <a href="#books" class="transition hover:text-cream">Books</a>
@@ -569,7 +618,6 @@
         </footer>
 
         <script>
-            // Mobile menu
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
@@ -577,7 +625,6 @@
                 a.addEventListener('click', () => mobileMenu.classList.add('hidden')),
             );
 
-            // Nav shadow on scroll
             const navInner = document.getElementById('navInner');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
@@ -589,7 +636,6 @@
                 }
             });
 
-            // Scroll reveal
             const io = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((e) => {
