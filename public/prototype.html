@@ -108,6 +108,46 @@
                 -webkit-text-stroke: 1.5px rgba(226, 160, 57, 0.55);
                 color: transparent;
             }
+
+            /* Shared carousel buttons (gallery + testimonials) */
+            .carousel-btn {
+                display: grid;
+                place-items: center;
+                height: 2.75rem;
+                width: 2.75rem;
+                border-radius: 9999px;
+                background: rgba(34, 26, 21, 0.85);
+                color: #f3ede1;
+                box-shadow: 0 14px 40px -20px rgba(56, 32, 51, 0.45);
+                backdrop-filter: blur(4px);
+                transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+                cursor: pointer;
+            }
+            .carousel-btn:hover {
+                background: #e2a039;
+                color: #221a15;
+                transform: translateY(-2px);
+            }
+            @media (min-width: 768px) {
+                .carousel-btn {
+                    height: 3rem;
+                    width: 3rem;
+                }
+            }
+
+            /* typewriter caret */
+            .caret {
+                display: inline-block;
+                width: 3px;
+                height: 1.05em;
+                margin-left: 2px;
+                margin-bottom: -2px;
+                background: #e2a039;
+                animation: caretBlink 1s steps(1) infinite;
+            }
+            @keyframes caretBlink {
+                50% { opacity: 0; }
+            }
         </style>
     </head>
 
@@ -423,41 +463,42 @@
             <div class="mx-auto mb-10 max-w-7xl px-4 md:px-6">
                 <div class="reveal flex items-end justify-between gap-4">
                     <div>
-                        <span class="text-xs font-bold tracking-widest text-marigold-deep uppercase">Life at the batch</span>
-                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight text-ink md:text-5xl">Inside the classroom</h2>
+                        <span class="text-xs font-bold tracking-widest text-marigold-deep uppercase">Snapshots from class</span>
+                        <h2 class="font-display mt-2 text-3xl font-bold tracking-tight text-ink md:text-5xl">Gallery</h2>
                     </div>
                     <span class="num-outline font-display hidden text-7xl font-bold leading-none md:block">03</span>
                 </div>
             </div>
 
-            <div class="marquee-pause relative overflow-hidden">
-                <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-cream to-transparent md:w-32"></div>
-                <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-cream to-transparent md:w-32"></div>
-                <div class="flex w-max animate-marquee-md">
-                    <div class="flex shrink-0 gap-4 pr-4">
-                        <img src="assets/class-banner/ClassX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
-                        <img src="assets/teacher/5.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
-                        <img src="assets/class-banner/ClassIX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
-                        <img src="assets/teacher/2.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
-                        <img src="assets/class-banner/ClassVIII.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Class" />
-                        <img src="assets/teacher/3.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="Classroom" />
-                    </div>
-                    <div class="flex shrink-0 gap-4 pr-4" aria-hidden="true">
-                        <img src="assets/class-banner/ClassX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/teacher/5.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/class-banner/ClassIX.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/teacher/2.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/class-banner/ClassVIII.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                        <img src="assets/teacher/3.jpg" class="h-56 w-[22rem] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card md:h-72 md:w-[32rem]" alt="" />
-                    </div>
+            <div class="relative">
+                <!-- edge fades -->
+                <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-cream to-transparent md:w-24"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-cream to-transparent md:w-24"></div>
+
+                <!-- swipeable track: native touch swipe via overflow-x-auto + scroll-snap -->
+                <div id="galleryTrack" class="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-2 md:px-6">
+                    <img src="assets/class-banner/ClassX.jpg" class="gallery-slide snap-center w-[78vw] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card sm:w-[24rem] md:h-72 md:w-[32rem]" alt="Class X batch" />
+                    <img src="assets/teacher/5.jpg" class="gallery-slide snap-center w-[78vw] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card sm:w-[24rem] md:h-72 md:w-[32rem]" alt="In class" />
+                    <img src="assets/class-banner/ClassIX.jpg" class="gallery-slide snap-center w-[78vw] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card sm:w-[24rem] md:h-72 md:w-[32rem]" alt="Class IX batch" />
+                    <img src="assets/teacher/2.jpg" class="gallery-slide snap-center w-[78vw] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card sm:w-[24rem] md:h-72 md:w-[32rem]" alt="In class" />
+                    <img src="assets/class-banner/ClassVIII.jpg" class="gallery-slide snap-center w-[78vw] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card sm:w-[24rem] md:h-72 md:w-[32rem]" alt="Class VIII batch" />
+                    <img src="assets/teacher/3.jpg" class="gallery-slide snap-center w-[78vw] shrink-0 rounded-3xl border border-ink/5 object-cover shadow-card sm:w-[24rem] md:h-72 md:w-[32rem]" alt="In class" />
                 </div>
+
+                <!-- nav buttons (consistent with prototype) -->
+                <button id="galPrev" aria-label="Previous photo" class="carousel-btn absolute top-1/2 left-2 z-20 -translate-y-1/2 md:left-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button id="galNext" aria-label="Next photo" class="carousel-btn absolute top-1/2 right-2 z-20 -translate-y-1/2 md:right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
             </div>
         </section>
 
         <!-- ============================ TESTIMONIALS ============================ -->
         <section id="voices" class="bg-paper py-16 md:py-24">
-            <div class="mx-auto max-w-7xl px-4 md:px-6">
-                <div class="reveal mb-12 flex items-end justify-between gap-4">
+            <div class="mx-auto max-w-4xl px-4 md:px-6">
+                <div class="reveal mb-10 flex items-end justify-between gap-4">
                     <div>
                         <span class="text-xs font-bold tracking-widest text-marigold-deep uppercase">Student voices</span>
                         <h2 class="font-display mt-2 text-3xl font-bold tracking-tight text-ink md:text-5xl">Loved by students &amp; parents</h2>
@@ -465,63 +506,41 @@
                     <span class="num-outline font-display hidden text-7xl font-bold leading-none md:block">04</span>
                 </div>
 
-                <div class="grid gap-5 md:grid-cols-3">
-                    <figure class="reveal relative flex flex-col rounded-[1.8rem] border border-ink/5 bg-cream/50 p-7 shadow-card">
-                        <span class="font-display absolute -top-5 left-6 text-7xl leading-none text-marigold/50">&ldquo;</span>
-                        <div class="mb-3 flex gap-0.5 text-marigold">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <div class="reveal relative">
+                    <figure class="relative mx-auto max-w-3xl overflow-hidden rounded-[2rem] border border-ink/5 bg-cream/50 p-8 text-center shadow-card md:p-12">
+                        <span class="font-display pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 text-8xl leading-none text-marigold/40">&ldquo;</span>
+
+                        <div class="mb-5 flex justify-center gap-1 text-marigold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink/80">Detailed feedback and targeted mock exams gave me the clarity I needed. His positive, interactive environment motivated me to reach my full potential.</blockquote>
-                        <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/5 pt-4">
-                            <img src="assets/students/prioman.jpg" class="h-11 w-11 rounded-full border-2 border-marigold/50 object-cover" alt="Prioman" />
-                            <div>
-                                <p class="text-sm font-bold text-ink">Prioman</p>
-                                <p class="text-xs text-muted"><span class="font-bold text-marigold-deep">A*</span> · World Heights · 2023</p>
+
+                        <blockquote class="mx-auto min-h-[8.5rem] max-w-2xl font-display text-xl leading-relaxed text-ink/85 md:min-h-[7.5rem] md:text-2xl">
+                            <span id="tQuote"></span><span class="caret"></span>
+                        </blockquote>
+
+                        <figcaption id="tAuthor" class="mt-8 flex items-center justify-center gap-3 opacity-0 transition-opacity duration-500">
+                            <img id="tAvatar" class="h-12 w-12 rounded-full border-2 border-marigold/50 object-cover" alt="" />
+                            <div class="text-left">
+                                <p id="tName" class="text-sm font-bold text-ink"></p>
+                                <p id="tGrade" class="text-xs text-muted"></p>
                             </div>
                         </figcaption>
                     </figure>
 
-                    <figure class="reveal relative flex flex-col rounded-[1.8rem] border border-ink/5 bg-cream/50 p-7 shadow-card">
-                        <span class="font-display absolute -top-5 left-6 text-7xl leading-none text-marigold/50">&ldquo;</span>
-                        <div class="mb-3 flex gap-0.5 text-marigold">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        </div>
-                        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink/80">Achieved 99 marks with Sir's guidance. Regular mocks and past-paper discussions improved my understanding consistently.</blockquote>
-                        <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/5 pt-4">
-                            <img src="assets/students/farhan.jpeg" class="h-11 w-11 rounded-full border-2 border-marigold/50 object-cover" alt="Farhan" />
-                            <div>
-                                <p class="text-sm font-bold text-ink">Farhan Ahmad</p>
-                                <p class="text-xs text-muted"><span class="font-bold text-marigold-deep">A*</span> · CAIE · 2023</p>
-                            </div>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="reveal relative flex flex-col rounded-[1.8rem] border border-ink/5 bg-cream/50 p-7 shadow-card">
-                        <span class="font-display absolute -top-5 left-6 text-7xl leading-none text-marigold/50">&ldquo;</span>
-                        <div class="mb-3 flex gap-0.5 text-marigold">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        </div>
-                        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink/80">Bangla changed from my most feared subject to favourite. His calming classes and cultural stories made learning enjoyable.</blockquote>
-                        <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/5 pt-4">
-                            <img src="assets/students/suprova.png" class="h-11 w-11 rounded-full border-2 border-marigold/50 object-cover" alt="Suprova" />
-                            <div>
-                                <p class="text-sm font-bold text-ink">Suprova Barua</p>
-                                <p class="text-xs text-muted"><span class="font-bold text-ink">89%</span> · O Level · 2025</p>
-                            </div>
-                        </figcaption>
-                    </figure>
+                    <!-- controls -->
+                    <div class="mt-7 flex items-center justify-center gap-4">
+                        <button id="tPrev" aria-label="Previous review" class="carousel-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <div id="tDots" class="flex items-center gap-2"></div>
+                        <button id="tNext" aria-label="Next review" class="carousel-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -648,6 +667,114 @@
                 { threshold: 0.12 },
             );
             document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+            /* ---------------- Gallery: button nav + native touch swipe ---------------- */
+            const gTrack = document.getElementById('galleryTrack');
+            const gStep = () => {
+                const slide = gTrack.querySelector('.gallery-slide');
+                const gap = 16;
+                return slide ? slide.getBoundingClientRect().width + gap : gTrack.clientWidth * 0.8;
+            };
+            document.getElementById('galPrev')?.addEventListener('click', () =>
+                gTrack.scrollBy({ left: -gStep(), behavior: 'smooth' }),
+            );
+            document.getElementById('galNext')?.addEventListener('click', () =>
+                gTrack.scrollBy({ left: gStep(), behavior: 'smooth' }),
+            );
+            // (touch swipe works natively because the track is overflow-x-auto)
+
+            /* ---------------- Testimonials: typewriter carousel ---------------- */
+            const testimonials = [
+                { name: 'Prioman', grade: 'A*', meta: 'World Heights · 2023', avatar: 'assets/students/prioman.jpg', text: "Detailed feedback and targeted mock exams gave me the clarity I needed. His positive, interactive environment motivated me to reach my full potential." },
+                { name: 'Farhan Ahmad', grade: 'A*', meta: 'CAIE · 2023', avatar: 'assets/students/farhan.jpeg', text: "Achieved 99 marks with Sir's guidance. Regular mocks and past-paper discussions improved my understanding consistently." },
+                { name: 'Suprova Barua', grade: '89%', meta: 'O Level · 2025', avatar: 'assets/students/suprova.png', text: "Bangla changed from my most feared subject to favourite. His calming classes and cultural stories made learning enjoyable." },
+                { name: 'Apurva Sahil', grade: 'A*', meta: 'O Level · 2021', avatar: 'assets/students/apurva.jpg', text: "Rofsan Sir's deep understanding of marking schemes and exam strategies sets him apart. Essay writing became my strength within a year." },
+                { name: 'Maida Naz', grade: 'A*', meta: 'O Level · 2023', avatar: 'assets/students/maida.jpg', text: "Regular mock tests and constructive feedback helped me improve exactly where needed. His structured approach builds real confidence." },
+            ];
+
+            const tQuote = document.getElementById('tQuote');
+            const tAuthor = document.getElementById('tAuthor');
+            const tAvatar = document.getElementById('tAvatar');
+            const tName = document.getElementById('tName');
+            const tGrade = document.getElementById('tGrade');
+            const tDots = document.getElementById('tDots');
+
+            let tIdx = 0;
+            let typeTimer = null;
+            let holdTimer = null;
+
+            testimonials.forEach((_, i) => {
+                const b = document.createElement('button');
+                b.className = 'h-2.5 w-2.5 rounded-full bg-ink/15 transition-all duration-300';
+                b.setAttribute('aria-label', 'Go to review ' + (i + 1));
+                b.addEventListener('click', () => go(i));
+                tDots.appendChild(b);
+            });
+
+            function paintDots() {
+                [...tDots.children].forEach((d, i) => {
+                    const on = i === tIdx;
+                    d.className =
+                        'h-2.5 rounded-full transition-all duration-300 ' +
+                        (on ? 'w-6 bg-marigold' : 'w-2.5 bg-ink/15');
+                });
+            }
+
+            function clearTimers() {
+                clearInterval(typeTimer);
+                clearTimeout(holdTimer);
+                typeTimer = null;
+                holdTimer = null;
+            }
+
+            function go(i) {
+                clearTimers();
+                tIdx = (i + testimonials.length) % testimonials.length;
+                const t = testimonials[tIdx];
+
+                tAvatar.src = t.avatar;
+                tAvatar.alt = t.name;
+                tName.textContent = t.name;
+                tGrade.innerHTML =
+                    '<span class="font-bold ' +
+                    (t.grade === '89%' ? 'text-ink' : 'text-marigold-deep') +
+                    '">' + t.grade + '</span> · ' + t.meta;
+
+                tAuthor.style.opacity = '0';
+                paintDots();
+
+                tQuote.textContent = '';
+                let c = 0;
+                const full = t.text;
+                typeTimer = setInterval(() => {
+                    c++;
+                    tQuote.textContent = full.slice(0, c);
+                    if (c >= full.length) {
+                        clearInterval(typeTimer);
+                        typeTimer = null;
+                        tAuthor.style.opacity = '1';
+                        holdTimer = setTimeout(() => go(tIdx + 1), 4200);
+                    }
+                }, 22);
+            }
+
+            document.getElementById('tPrev')?.addEventListener('click', () => go(tIdx - 1));
+            document.getElementById('tNext')?.addEventListener('click', () => go(tIdx + 1));
+
+            // Start only once, when the section scrolls into view
+            let started = false;
+            const vo = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting && !started) {
+                            started = true;
+                            go(0);
+                        }
+                    });
+                },
+                { threshold: 0.4 },
+            );
+            vo.observe(document.getElementById('voices'));
         </script>
     </body>
 </html>
