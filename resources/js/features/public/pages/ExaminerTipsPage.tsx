@@ -105,7 +105,7 @@ const ExaminerTipsPage: React.FC = () => {
             date: 'Feb 10, 2026',
             duration: '8 min read',
             excerpt:
-                'বিদেশে উচ্চশিক্ষা, মাতৃভাষার দুর্বলতা, একাডেমিক রাইটিং, মানসিক স্থিতি এবং ক্যারিয়ার নিরাপত্তা—O Level Bangla না পড়ালে কী কী সমস্যা হতে পারে তা বিস্তারিত জানুন।',
+                'বিদেশে উচ্চশিক্ষা, মাতৃভাষার দুর্বলতা, একাডেমিক রাইটিং, মানসিক স্থিতি এবং ক্যারিয়ার নিরাপত্তাO Level Bangla না পড়ালে কী কী সমস্যা হতে পারে তা বিস্তারিত জানুন।',
             thumbnail: '../assets/tips/1.jpg',
             isVideo: false,
         },
@@ -153,7 +153,7 @@ const ExaminerTipsPage: React.FC = () => {
             date: 'Feb 06, 2026',
             duration: '8 min read',
             excerpt:
-                'Detailed analysis of starting in Class VIII, IX, or X—benefits, challenges, and examiner recommendations for optimal preparation timeline.',
+                'Detailed analysis of starting in Class VIII, IX, or Xbenefits, challenges, and examiner recommendations for optimal preparation timeline.',
             thumbnail: '../assets/tips/5.jpg',
             isVideo: false,
         },
@@ -827,7 +827,7 @@ const ExaminerTipsPage: React.FC = () => {
                                         Start early,
                                     </span>{' '}
                                     practice regularly, and learn from
-                                    feedback—progress will follow.
+                                    feedbackprogress will follow.
                                 </p>
                             </div>
                         ) : (
@@ -840,7 +840,7 @@ const ExaminerTipsPage: React.FC = () => {
                                         Cambridge O Level Bangla
                                     </span>{' '}
                                     কোনো অতিরিক্ত বোঝা নয়। সঠিক পদ্ধতিতে পড়ালে
-                                    এটি শিক্ষার্থীর জন্য— <br />
+                                    এটি শিক্ষার্থীর জন্য <br />
                                     <span className="font-extrabold text-brand-navy">
                                         ✔ Confidence builder <br />
                                         ✔ Thinking skill developer <br />✔

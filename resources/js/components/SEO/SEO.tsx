@@ -16,7 +16,7 @@ export interface SEOProps {
      * `seo.json` config. If provided, you can omit the other props entirely.
      */
     path?: string;
-    /** Full page title (already formatted — no suffix is appended). */
+    /** Full page title (already formatted  no suffix is appended). */
     title?: string;
     description?: string;
     keywords?: string;

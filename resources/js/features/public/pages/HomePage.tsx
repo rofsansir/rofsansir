@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
             name: 'Akib Azwad',
             grade: 'A*',
             year: 'O Level 2025',
-            text: "Even with moderate attention, his notes covered everything. Classes felt like engaging stories—he truly simplifies complex topics.",
+            text: "Even with moderate attention, his notes covered everything. Classes felt like engaging storieshe truly simplifies complex topics.",
             avatar: '../assets/students/akib.png',
         },
         {

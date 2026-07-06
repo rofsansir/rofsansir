@@ -24,7 +24,7 @@ import Navbar from './layouts/Navbar';
 const AppContent: React.FC = () => {
     const [showBackToTop, setShowBackToTop] = useState(false);
 
-    // Static public site — navbar/footer are always visible.
+    // Static public site  navbar/footer are always visible.
     const shouldHideNavbar = false;
     const isAdminDashboard = false;
 

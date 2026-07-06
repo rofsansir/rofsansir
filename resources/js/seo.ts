@@ -8,8 +8,8 @@
  * - The Node prerender script (`scripts/prerender.mjs`) reads the same
  *   `seo.json` (plus the book / past-paper / blog JSON) to bake the correct
  *   meta tags into a static HTML file PER ROUTE at build time, so that
- *   WhatsApp / Facebook / Twitter / LinkedIn / Telegram crawlers — which do
- *   NOT execute JavaScript — still see the right preview for each URL.
+ *   WhatsApp / Facebook / Twitter / LinkedIn / Telegram crawlers  which do
+ *   NOT execute JavaScript  still see the right preview for each URL.
  */
 
 import seoData from './data/seo.json';

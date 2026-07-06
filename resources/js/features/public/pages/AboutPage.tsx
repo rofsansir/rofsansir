@@ -96,8 +96,8 @@ const AboutPage: React.FC = () => {
                                     clear, structured, and student-friendly
                                     teaching approach
                                 </span>
-                                , which helps learners—especially those who
-                                struggle or feel anxious about Bengali—build
+                                , which helps learnersespecially those who
+                                struggle or feel anxious about Bengalibuild
                                 confidence and achieve consistent examination
                                 success across the country.
                             </p>
@@ -517,7 +517,7 @@ const AboutPage: React.FC = () => {
                                     <span className="font-bold text-brand-blue">
                                         calm, supportive, and disciplined
                                     </span>
-                                    —allowing students to learn without pressure
+                                    allowing students to learn without pressure
                                     while steadily improving their reading,
                                     writing, and analytical abilities.
                                 </p>
@@ -775,7 +775,7 @@ const AboutPage: React.FC = () => {
                             {
                                 number: '03',
                                 title: 'Comprehensive Resources',
-                                desc: 'Author of 5 specialized textbooks covering every aspect of O Level Bengali—from foundations to advanced mastery.',
+                                desc: 'Author of 5 specialized textbooks covering every aspect of O Level Bengalifrom foundations to advanced mastery.',
                                 color: 'brand-blue',
                             },
                             {
@@ -836,8 +836,8 @@ const AboutPage: React.FC = () => {
                                     Revision Plus
                                 </span>
                                 . These books are carefully designed to support
-                                learners at different levels—especially those
-                                with weak foundational skills—by making Bengali
+                                learners at different levelsespecially those
+                                with weak foundational skillsby making Bengali
                                 easier, more structured, and more approachable
                                 through guided lessons, systematic practice, and
                                 exam-focused support. These resources are{' '}
@@ -1148,7 +1148,7 @@ const AboutPage: React.FC = () => {
                                     language foundations, and approach O Level
                                     examinations with confidence and clarity
                                 </span>
-                                —while fostering{' '}
+                                while fostering{' '}
                                 <span className="font-bold text-slate-200">
                                     genuine understanding rather than short-term
                                     exam-oriented learning
@@ -1193,7 +1193,7 @@ const AboutPage: React.FC = () => {
                             Choosing the right teacher plays a vital role in a
                             student's confidence and success in O Level Bengali.
                             Rofsan Sir focuses on making learning clear,
-                            supportive, and well-structured—so that both parents
+                            supportive, and well-structuredso that both parents
                             and students feel confident about the journey.
                         </p>
                     </div>
@@ -1303,7 +1303,7 @@ const AboutPage: React.FC = () => {
                             <div className="space-y-6 text-lg leading-relaxed text-slate-700">
                                 <p class="italic">
                                     <span className="font-bold text-brand-navy">
-                                        The answer is simple —{' '}
+                                        The answer is simple {' '}
                                     </span>
                                     <span className="font-bold text-brand-blue">
                                         because too many capable students lose
@@ -1329,7 +1329,7 @@ const AboutPage: React.FC = () => {
                                         Grammar appears complicated. Composition
                                         feels unpredictable. Examination
                                         standards seem unclear. Gradually,
-                                        hesitation turns into fear — and fear
+                                        hesitation turns into fear  and fear
                                         affects performance.
                                     </span>{' '}
                                 </p>
@@ -1377,7 +1377,7 @@ const AboutPage: React.FC = () => {
                                             students commonly lose valuable
                                             points. This insight allows me to
                                             guide preparation ethically and
-                                            responsibly — focusing on clarity,
+                                            responsibly  focusing on clarity,
                                             structure, and consistent practice
                                             rather than memorisation.
                                         </p>
@@ -1422,7 +1422,7 @@ const AboutPage: React.FC = () => {
                                             When clarity replaces confusion,
                                             confidence naturally follows. And
                                             when confidence grows, success
-                                            becomes the outcome — not the
+                                            becomes the outcome  not the
                                             pressure.
                                         </p>
                                     </>

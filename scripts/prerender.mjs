@@ -3,7 +3,7 @@
  *
  * Problem: this is a client-side React SPA. Social-media crawlers
  * (WhatsApp, Facebook, Twitter/X, LinkedIn, Telegram, iMessage, Slack) do
- * NOT execute JavaScript, so they only ever see the static `index.html` —
+ * NOT execute JavaScript, so they only ever see the static `index.html` 
  * meaning every shared URL shows the home-page preview.
  *
  * Solution: after `vite build`, read the built `dist/index.html` as a
@@ -30,7 +30,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const TEMPLATE_HTML = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 
-// ---- Data sources (plain JSON — importable from Node) ----------------------
+// ---- Data sources (plain JSON  importable from Node) ----------------------
 const seoConfig = JSON.parse(
     fs.readFileSync(path.join(ROOT, 'resources/js/data/seo.json'), 'utf8'),
 );

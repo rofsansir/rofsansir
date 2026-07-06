@@ -53,7 +53,7 @@ const FAQPage: React.FC = () => {
                             </span>
                         </h1>
                         <p className="text-lg text-brand-navy/70">
-                            Everything you need to know about O Level Bengali —
+                            Everything you need to know about O Level Bengali 
                             the exam, the preparation, and what to expect with
                             Rofsan Sir. Can&apos;t find your answer?{' '}
                             <Link
@@ -148,7 +148,7 @@ const FAQPage: React.FC = () => {
                                 Still have a question?
                             </h2>
                             <p className="mt-2 text-slate-300">
-                                Talk to Rofsan Sir directly — we usually reply
+                                Talk to Rofsan Sir directly  we usually reply
                                 within a few hours.
                             </p>
                             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
