@@ -1,0 +1,173 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 Theme - Brand Colors */
+@theme {
+    /* Brand Color Palette - RGB format for exact color matching */
+    --color-brand-navy: rgb(52 72 113);
+    --color-brand-blue-light: rgb(24 119 242);
+    --color-brand-blue: rgb(0 109 214);
+    --color-brand-blue-medium: rgb(0 128 255);
+    --color-brand-blue-dark: rgb(0 84 165);
+    --color-brand-white: rgb(255 255 255);
+    --color-brand-dark: rgb(30 41 59);
+    
+    /* Font Families */
+    --font-family-heading: Poppins, Montserrat, sans-serif;
+    --font-family-body: Inter, sans-serif;
+    
+    /* Animations */
+    --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+    --animate-float: float 3s ease-in-out infinite;
+    --animate-fade-in: fadeIn 0.3s ease-in;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* New Frontend Styles - Based on rofsan-sir-frontend design */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fcfcfc;
+    scroll-behavior: smooth;
+    color: #344871;
+}
+
+/* Glass morphism effects */
+.glass {
+    background: rgba(52, 72, 113, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(52, 72, 113, 0.1);
+}
+
+.glass-dark {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Image placeholder */
+.image-placeholder {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+/* Card lift animation */
+.card-lift {
+    transition:
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.4s ease;
+}
+
+.card-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px -12px rgba(52, 72, 113, 0.15);
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Bengali font support */
+@font-face {
+    font-family: 'Kalpurush';
+    src: url('/assets/fonts/kalpurush.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Ensure Inter is the default font */
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Force exact RGB color values for brand colors (matching v3 format) */
+@layer utilities {
+    .text-brand-navy {
+        --tw-text-opacity: 1;
+        color: rgb(52 72 113 / var(--tw-text-opacity, 1));
+    }
+    .text-brand-blue {
+        --tw-text-opacity: 1;
+        color: rgb(0 109 214 / var(--tw-text-opacity, 1));
+    }
+    .text-brand-blue-light {
+        --tw-text-opacity: 1;
+        color: rgb(24 119 242 / var(--tw-text-opacity, 1));
+    }
+    .text-brand-blue-dark {
+        --tw-text-opacity: 1;
+        color: rgb(0 84 165 / var(--tw-text-opacity, 1));
+    }
+    .bg-brand-navy {
+        --tw-bg-opacity: 1;
+        background-color: rgb(52 72 113 / var(--tw-bg-opacity, 1));
+    }
+    .bg-brand-blue {
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 109 214 / var(--tw-bg-opacity, 1));
+    }
+    .bg-brand-blue-light {
+        --tw-bg-opacity: 1;
+        background-color: rgb(24 119 242 / var(--tw-bg-opacity, 1));
+    }
+    .bg-brand-blue-dark {
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 84 165 / var(--tw-bg-opacity, 1));
+    }
+    .bg-brand-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+    }
+    .border-brand-navy {
+        --tw-border-opacity: 1;
+        border-color: rgb(52 72 113 / var(--tw-border-opacity, 1));
+    }
+    .border-brand-blue {
+        --tw-border-opacity: 1;
+        border-color: rgb(0 109 214 / var(--tw-border-opacity, 1));
+    }
+    .border-brand-blue-light {
+        --tw-border-opacity: 1;
+        border-color: rgb(24 119 242 / var(--tw-border-opacity, 1));
+    }
+}
+
+/* Bengali text styling - Inter for English, Kalpurush for Bengali */
+.bengali-text {
+    font-family: 'Inter', 'Kalpurush', 'Noto Sans Bengali', sans-serif;
+    font-size: 1rem;
+}
+
+/* Apply mixed font support for English/Bengali content */
+@layer utilities {
+    .font-bengali {
+        font-family: 'Inter', 'Kalpurush', 'Noto Sans Bengali', sans-serif !important;
+    }
+}

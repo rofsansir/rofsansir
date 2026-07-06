@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/
+.fleet/
+.nova/
+.zed/
+
+# Cache
+.cache/
+.vite/
+*.tsbuildinfo
