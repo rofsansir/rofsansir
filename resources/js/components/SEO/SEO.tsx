@@ -1,41 +1,74 @@
 import { Helmet } from 'react-helmet-async';
 import React from 'react';
 
-interface SEOProps {
-    title: string;
-    description: string;
+import {
+    DEFAULT_OG_IMAGE,
+    SITE_NAME,
+    SITE_URL,
+    SEO_CONFIG,
+    absoluteUrl,
+    getStaticRouteMeta,
+} from '../../seo';
+
+export interface SEOProps {
+    /**
+     * Route path to auto-resolve title/description/etc. from the central
+     * `seo.json` config. If provided, you can omit the other props entirely.
+     */
+    path?: string;
+    /** Full page title (already formatted — no suffix is appended). */
+    title?: string;
+    description?: string;
     keywords?: string;
+    /** Site-relative or absolute OG image. Defaults to the site OG image. */
     ogImage?: string;
     ogType?: string;
+    /** Site-relative canonical URL. Defaults to the current pathname. */
     canonicalUrl?: string;
     noindex?: boolean;
 }
 
+/**
+ * Renders all `<title>` / Open Graph / Twitter card tags for a page.
+ *
+ * NOTE: This only updates tags at runtime in the browser. For social crawlers
+ * (WhatsApp, Facebook, etc.) that do NOT run JavaScript, the per-route static
+ * HTML produced by `scripts/prerender.mjs` (run after `vite build`) contains
+ * the correct tags already. Keep this component's values in sync with the
+ * central config in `resources/js/data/seo.json` (via `resources/js/seo.ts`).
+ */
 const SEO: React.FC<SEOProps> = ({
+    path,
     title,
     description,
-    keywords = 'O Level Bengali, CAIE Bengali, Bengali tutor Dhaka, O Level Bangla, Cambridge Bengali',
-    ogImage = 'https://rofsansir.com/assets/og/default-og.svg',
-    ogType = 'website',
+    keywords,
+    ogImage,
+    ogType,
     canonicalUrl,
     noindex = false,
 }) => {
-    const fullTitle = `${title} | Rofsan Sir O Level Bengali`;
-    const siteUrl = 'https://rofsansir.com';
-    const canonical = canonicalUrl || `${siteUrl}${window.location.pathname}`;
+    const route = path ? getStaticRouteMeta(path) : null;
 
-    // Ensure ogImage is absolute URL
-    const absoluteOgImage = ogImage.startsWith('http')
-        ? ogImage
-        : `${siteUrl}${ogImage}`;
+    const resolvedTitle = title ?? route?.title ?? SEO_CONFIG.defaultTitle;
+    const resolvedDescription =
+        description ?? route?.description ?? SEO_CONFIG.defaultDescription;
+    const resolvedKeywords = keywords ?? route?.keywords ?? SEO_CONFIG.defaultKeywords;
+    const resolvedOgImage = ogImage ?? route?.ogImage ?? DEFAULT_OG_IMAGE;
+    const resolvedType = ogType ?? route?.type ?? 'website';
+
+    const canonical = canonicalUrl
+        ? absoluteUrl(canonicalUrl)
+        : `${SITE_URL}${window.location.pathname}`;
+
+    const absoluteOgImage = absoluteUrl(resolvedOgImage);
 
     return (
         <Helmet>
             {/* Primary Meta Tags */}
-            <title>{fullTitle}</title>
-            <meta name="title" content={fullTitle} />
-            <meta name="description" content={description} />
-            <meta name="keywords" content={keywords} />
+            <title>{resolvedTitle}</title>
+            <meta name="title" content={resolvedTitle} />
+            <meta name="description" content={resolvedDescription} />
+            <meta name="keywords" content={resolvedKeywords} />
 
             {/* Robots */}
             {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -44,25 +77,29 @@ const SEO: React.FC<SEOProps> = ({
             <link rel="canonical" href={canonical} />
 
             {/* Open Graph / Facebook / WhatsApp */}
-            <meta property="og:type" content={ogType} />
+            <meta property="og:type" content={resolvedType} />
             <meta property="og:url" content={canonical} />
-            <meta property="og:title" content={fullTitle} />
-            <meta property="og:description" content={description} />
+            <meta property="og:title" content={resolvedTitle} />
+            <meta property="og:description" content={resolvedDescription} />
             <meta property="og:image" content={absoluteOgImage} />
+            <meta property="og:image:secure_url" content={absoluteOgImage} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:image:alt" content={fullTitle} />
-            <meta property="og:site_name" content="Rofsan Sir - O Level Bengali" />
+            <meta property="og:image:alt" content={resolvedTitle} />
+            <meta property="og:site_name" content={SITE_NAME} />
             <meta property="og:locale" content="en_US" />
 
             {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={canonical} />
-            <meta property="twitter:title" content={fullTitle} />
-            <meta property="twitter:description" content={description} />
-            <meta property="twitter:image" content={absoluteOgImage} />
-            <meta property="twitter:image:alt" content={fullTitle} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content={canonical} />
+            <meta name="twitter:title" content={resolvedTitle} />
+            <meta name="twitter:description" content={resolvedDescription} />
+            <meta name="twitter:image" content={absoluteOgImage} />
+            <meta name="twitter:image:alt" content={resolvedTitle} />
+            {SEO_CONFIG.twitterHandle && (
+                <meta name="twitter:site" content={SEO_CONFIG.twitterHandle} />
+            )}
 
             {/* Additional Meta Tags */}
             <meta name="author" content="Rofsan Khan" />

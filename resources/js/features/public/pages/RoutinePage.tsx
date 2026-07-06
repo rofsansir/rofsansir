@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { AdmissionNow } from '../components/AdmissionNow';
+import SEO from '../../../components/SEO/SEO';
 interface Routine {
     id: number;
     class_level: string;
@@ -121,6 +122,8 @@ const CoursesAdmissionPage: React.FC = () => {
     ];
 
     return (
+        <>
+            <SEO path="/routine" />
         <div className="animate-fade-in-up min-h-screen pt-24">
             {/* Page Hero Header */}
             <section className="relative overflow-hidden bg-brand-blue-dark py-24">
@@ -480,6 +483,7 @@ const CoursesAdmissionPage: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 

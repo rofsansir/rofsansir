@@ -1,0 +1,108 @@
+{
+    "siteUrl": "https://rofsansir.com",
+    "siteName": "Rofsan Sir - O Level Bengali",
+    "titleSuffix": "| Rofsan Sir O Level Bengali",
+    "defaultTitle": "Rofsan Sir | O Level Bengali Examiner, Author & Educator",
+    "defaultDescription": "Master O Level Bengali with Rofsan Sir — Experienced Educator, O Level Examiner, and Author of multiple O Level Bengali books helping English medium students achieve top grades.",
+    "defaultKeywords": "O Level Bengali, CAIE Bengali, Bengali tutor Dhaka, O Level Bangla, Cambridge Bengali, Rofsan Sir",
+    "defaultOgImage": "/assets/og/default-og.jpg",
+    "twitterHandle": "@rofsankhan",
+    "routes": [
+        {
+            "path": "/",
+            "title": "O Level Bengali with Rofsan Sir - CAIE Examiner - Achieve A*",
+            "description": "Join CAIE-approved examiner Rofsan Sir for O Level Bengali coaching. 8+ years experience, 3000+ students, 98% A* & A success rate. Enroll now for Dhaka classes.",
+            "keywords": "O Level Bengali tutor Dhaka, CAIE Bengali coaching, O Level Bangla teacher, Cambridge Bengali examiner, O Level Bengali 3204, Rofsan Sir",
+            "ogImage": "/assets/og/home-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/about",
+            "title": "About Rofsan Sir - CAIE Bengali Examiner & Author - 8+ Years Experience",
+            "description": "Meet Rofsan Khan - CAIE-approved O Level Bengali examiner, published author of 5 textbooks, and educator with 8+ years of experience guiding 3000+ students to A* grades.",
+            "keywords": "Rofsan Sir, O Level Bengali examiner, CAIE Bengali teacher, Bengali author, O Level Bengali books, Cambridge Bengali examiner",
+            "ogImage": "/assets/og/about-og.jpg",
+            "type": "profile"
+        },
+        {
+            "path": "/routine",
+            "title": "Class Routine & Admission - O Level Bengali | Rofsan Sir",
+            "description": "View the latest class routine, batch schedules, and admission details for O Level Bengali coaching with Rofsan Sir in Dhaka.",
+            "keywords": "O Level Bengali routine, class schedule, admission, Rofsan Sir batches, Dhaka Bengali classes",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/courses",
+            "title": "Courses & Admission - O Level Bengali | Rofsan Sir",
+            "description": "Explore O Level Bengali courses and admission with CAIE examiner Rofsan Sir. Class 8, 9, 10 and full O Level preparation in Dhaka.",
+            "keywords": "O Level Bengali courses, admission, Rofsan Sir classes, Dhaka Bengali coaching",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/resources",
+            "title": "O Level Bengali Resources - Free Notes, Past Papers & Tips by Rofsan Sir",
+            "description": "Download free O Level Bengali resources: past papers, notes, study materials, and exam tips by CAIE examiner Rofsan Sir. Boost your preparation.",
+            "keywords": "O Level Bengali resources, Bengali past papers, O Level Bengali notes, CAIE Bengali study materials, free Bengali resources",
+            "ogImage": "/assets/og/resources-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/tips",
+            "title": "O Level Bengali Examiner Tips - Expert Guidance | Rofsan Sir",
+            "description": "Get insider tips from CAIE examiner Rofsan Sir. Learn how Cambridge examiners grade papers and maximize your O Level Bengali score.",
+            "keywords": "O Level Bengali tips, CAIE examiner tips, Bengali exam preparation, Cambridge Bengali guidance",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "article"
+        },
+        {
+            "path": "/contact",
+            "title": "Contact Rofsan Sir - O Level Bengali Classes in Dhaka",
+            "description": "Get in touch with Rofsan Sir for O Level Bengali coaching in Dhaka. WhatsApp: +8801948116595. Join now for expert guidance from CAIE examiner.",
+            "keywords": "contact rofsan sir, o level bengali classes dhaka, bengali coaching dhaka, rofsan sir contact",
+            "ogImage": "/assets/og/contact-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/class-8",
+            "title": "Class 8 Bengali - English Medium Foundation Course | Rofsan Sir",
+            "description": "Build strong Bengali foundations for Class 8 students. Comprehensive curriculum by CAIE examiner Rofsan Sir. Enroll now for Dhaka classes.",
+            "keywords": "Class 8 Bengali, English medium Bengali, Class 8 Bengali course, O Level Bengali preparation",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/class-9",
+            "title": "Class 9 Bengali - English Medium Course | Rofsan Sir",
+            "description": "Comprehensive Class 9 Bengali curriculum by CAIE examiner Rofsan Sir. Build skills for O Level success. Enroll now in Dhaka.",
+            "keywords": "Class 9 Bengali, English medium Bengali, Class 9 Bengali course, O Level preparation",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/class-10",
+            "title": "Class 10 / O Level Bengali - Exam Prep Course | Rofsan Sir",
+            "description": "Complete O Level Bengali preparation for Class 10. CAIE examiner guidance for A* grades. Enroll now in Dhaka.",
+            "keywords": "O Level Bengali, Class 10 Bengali, CAIE Bengali 3204, O Level Bengali exam prep",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/privacy-policy",
+            "title": "Privacy Policy | Rofsan Sir",
+            "description": "Privacy policy for rofsansir.com — how we handle your data and protect your privacy.",
+            "keywords": "privacy policy, rofsansir",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        },
+        {
+            "path": "/terms-of-service",
+            "title": "Terms of Service | Rofsan Sir",
+            "description": "Terms of service for rofsansir.com — the terms governing use of this website and its resources.",
+            "keywords": "terms of service, rofsansir",
+            "ogImage": "/assets/og/default-og.jpg",
+            "type": "website"
+        }
+    ]
+}

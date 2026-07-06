@@ -3,7 +3,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build && node scripts/prerender.mjs",
+        "build:seo": "node scripts/prerender.mjs",
         "dev": "vite",
         "preview": "vite preview",
         "format": "prettier --write resources/",
@@ -22,6 +23,7 @@
         "prettier": "^3.4.2",
         "prettier-plugin-organize-imports": "^4.1.0",
         "prettier-plugin-tailwindcss": "^0.6.11",
+        "sharp": "^0.35.3",
         "typescript-eslint": "^8.23.0"
     },
     "dependencies": {

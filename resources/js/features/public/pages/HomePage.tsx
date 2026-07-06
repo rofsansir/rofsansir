@@ -143,12 +143,7 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="animate-fade-in-up">
-            <SEO
-                title="O Level Bengali with Rofsan Sir - CAIE Examiner - Achieve A*"
-                description="Join CAIE-approved examiner Rofsan Sir for O Level Bengali coaching. 8+ years experience, 3000+ students, 98% A* & A success rate. Enroll now for Dhaka classes."
-                keywords="O Level Bengali tutor Dhaka, CAIE Bengali coaching, O Level Bangla teacher, Cambridge Bengali examiner, O Level Bengali 3204, Rofsan Sir"
-                ogImage="/assets/og/home-og.svg"
-            />
+            <SEO path="/" />
             <StructuredData type="organization" />
             <StructuredData type="person" />
             <StructuredData type="course" />

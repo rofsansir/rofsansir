@@ -22,12 +22,7 @@ const ClassIXPage: React.FC<{ setActiveTab: (tab: string) => void }> = ({
 }) => {
     return (
         <>
-            <SEO
-                title="Class 9 Bengali - English Medium Course | Rofsan Sir"
-                description="Comprehensive Class 9 Bengali curriculum by CAIE examiner Rofsan Sir. Build skills for O Level success. Enroll now in Dhaka."
-                keywords="Class 9 Bengali, English medium Bengali, Class 9 Bengali course, O Level preparation"
-                ogImage="/assets/og/default-og.jpg"
-            />
+            <SEO path="/class-9" />
             <div className="animate-fade-in-up min-h-screen bg-white pt-24">
             {/* Breadcrumbs & Header */}
             <section className="border-b border-slate-100 bg-slate-50 py-6">

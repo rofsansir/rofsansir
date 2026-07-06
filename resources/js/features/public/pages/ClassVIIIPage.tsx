@@ -22,12 +22,7 @@ const ClassVIIIPage: React.FC<{ setActiveTab: (tab: string) => void }> = ({
 }) => {
     return (
         <>
-            <SEO
-                title="Class 8 Bengali - English Medium Foundation Course | Rofsan Sir"
-                description="Build strong Bengali foundations for Class 8 students. Comprehensive curriculum by CAIE examiner Rofsan Sir. Enroll now for Dhaka classes."
-                keywords="Class 8 Bengali, English medium Bengali, Class 8 Bengali course, O Level Bengali preparation"
-                ogImage="/assets/og/default-og.jpg"
-            />
+            <SEO path="/class-8" />
             <div className="animate-fade-in-up min-h-screen bg-white pt-24">
             {/* Breadcrumbs & Header */}
             <section className="border-b border-slate-100 bg-slate-50 py-6">

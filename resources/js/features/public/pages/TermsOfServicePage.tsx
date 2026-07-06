@@ -1,8 +1,11 @@
 import React from 'react';
 import { FileText, CheckCircle, AlertTriangle, Scale, Users, BookOpen } from 'lucide-react';
+import SEO from '../../../components/SEO/SEO';
 
 const TermsOfServicePage: React.FC = () => {
     return (
+        <>
+            <SEO path="/terms-of-service" />
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 pt-24 pb-16">
             <div className="mx-auto max-w-4xl px-6 md:px-8">
                 {/* Header */}
@@ -311,6 +314,7 @@ const TermsOfServicePage: React.FC = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

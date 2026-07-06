@@ -18,12 +18,7 @@ const ClassXPage: React.FC<{ setActiveTab: (tab: string) => void }> = ({
 }) => {
     return (
         <>
-            <SEO
-                title="Class 10 / O Level Bengali - Exam Prep Course | Rofsan Sir"
-                description="Complete O Level Bengali preparation for Class 10. CAIE examiner guidance for A* grades. Enroll now in Dhaka."
-                keywords="O Level Bengali, Class 10 Bengali, CAIE Bengali 3204, O Level Bengali exam prep"
-                ogImage="/assets/og/default-og.jpg"
-            />
+            <SEO path="/class-10" />
             <div className="animate-fade-in-up min-h-screen bg-white pt-24">
             {/* Breadcrumbs & Header */}
             <section className="border-b border-slate-100 bg-slate-50 py-6">

@@ -39,12 +39,7 @@ const AboutPage: React.FC = () => {
 
     return (
         <>
-            <SEO
-                title="About Rofsan Sir - CAIE Bengali Examiner & Author - 8+ Years Experience"
-                description="Meet Rofsan Khan - CAIE-approved O Level Bengali examiner, published author of 5 textbooks, and educator with 8+ years of experience guiding 3000+ students to A* grades."
-                keywords="Rofsan Sir, O Level Bengali examiner, CAIE Bengali teacher, Bengali author, O Level Bengali books, Cambridge Bengali examiner"
-                ogImage="/assets/og/about-og.svg"
-            />
+            <SEO path="/about" />
             <StructuredData type="person" />
             <StructuredData type="organization" />
             <div className="animate-fade-in-up min-h-screen pt-24">

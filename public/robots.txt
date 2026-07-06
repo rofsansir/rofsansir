@@ -1,18 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /student/
-Disallow: /api/
-Disallow: /portal
-
-# Allow public pages
-Allow: /about
-Allow: /contact
-Allow: /resources
-Allow: /tips
-Allow: /routine
-Allow: /privacy-policy
-Allow: /terms-of-service
 
 # Sitemap location
 Sitemap: https://rofsansir.com/sitemap.xml

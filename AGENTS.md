@@ -21,7 +21,8 @@ It is a Vite + React SPA (not SSR) served as static assets.
 - **UI primitives:** shadcn-style (config in `components.json`, style `new-york`,
   alias `@/*` → `resources/js/*`) — note `@/components/ui` is currently **empty**.
   Radix UI + Headless UI + `lucide-react` icons are installed.
-- **SEO:** `react-helmet-async` (`SEO`/`StructuredData` components).
+- **SEO:** `react-helmet-async` (`SEO`/`StructuredData` components). Per-route
+  social-share meta is **prerendered at build time** — see "SEO / social previews" below.
 - **Notifications:** `react-hot-toast`.
 - **Firebase:** configured in `resources/js/config/firebase.ts` (auth + analytics
   + storage), reading `VITE_FIREBASE_*` env vars. Largely unused by the static
@@ -109,3 +110,30 @@ npm run format:check
 - `dist/` is committed/present locally but gitignored — treat it as build output.
 - `resources/js/data/pastPapers.json` ships PDF references under
   `public/assets/past-paper/<year>/...`; keep paths consistent when adding papers.
+
+## SEO / social previews (WhatsApp, Facebook, Twitter, etc.)
+
+This is a **client-side SPA**. Social crawlers do NOT run JavaScript, so runtime
+`<SEO>` tags alone are not enough — every shared URL would show the home-page
+preview. Instead, meta is baked into a **separate static HTML file per route** at
+build time:
+
+- **Source of truth:** `resources/js/data/seo.json` (static routes + site config).
+  Runtime helpers in `resources/js/seo.ts`; the `<SEO>` component
+  (`resources/js/components/SEO/SEO.tsx`) auto-resolves values from a `path` prop.
+- **Prerender:** `scripts/prerender.mjs` runs automatically after `vite build`
+  (`npm run build`). It reads `dist/index.html` as a template, derives meta for
+  every static route + alias + book + past-paper + tip route from the JSON data,
+  and writes `dist/<path>/index.html` (directory-index, served for clean URLs by
+  Netlify/Cloudflare Pages/GitHub Pages/Vercel). Also emits `dist/sitemap.xml`.
+  Re-run only the prerender with `npm run build:seo`.
+- **OG images:** must be 1200×630 **JPG/PNG** (WhatsApp/FB don't render SVG).
+  They live in `public/assets/og/` (SVG sources + converted JPGs). To regenerate
+  JPGs from SVG, rasterize with `sharp` (already a devDep).
+- **Default home meta** lives in `index.html` (also the prerender template).
+- **Verify** after deploy: Facebook Debugger
+  (https://developers.facebook.com/tools/debug/), and share a fresh link in
+  WhatsApp (append `?v=N` or use a new URL to bust WA's aggressive cache).
+- **Hosting requirement:** the host must serve `/about` → `/about/index.html`
+  (directory index). If hosting only does SPA fallback to root `index.html`,
+  per-route previews will NOT work — configure clean URLs / pretty URLs.

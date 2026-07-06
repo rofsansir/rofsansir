@@ -1,6 +1,7 @@
 import { ArrowLeft, CheckCircle, ShieldCheck } from 'lucide-react';
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import SEO from '../../../components/SEO/SEO';
 import { BOOKS } from '../../../constants';
 import bookData from '../../../data/bookData.json';
 
@@ -44,6 +45,12 @@ const BookDetailPage: React.FC = () => {
     }
 
     return (
+        <>
+            <SEO
+                title={`${bookInfo.title} | Rofsan Sir O Level Bengali Book`}
+                description={bookInfo.description}
+                ogType="book"
+            />
         <div className="animate-fade-in-up min-h-screen pt-24">
             <section className="relative overflow-hidden bg-brand-navy py-24">
                 <div className="absolute inset-0">
@@ -169,6 +176,7 @@ const BookDetailPage: React.FC = () => {
                     );
                 })}
         </div>
+        </>
     );
 };
 

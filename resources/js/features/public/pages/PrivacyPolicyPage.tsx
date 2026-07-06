@@ -1,8 +1,11 @@
 import React from 'react';
 import { Shield, Lock, Eye, Database, Mail, Globe } from 'lucide-react';
+import SEO from '../../../components/SEO/SEO';
 
 const PrivacyPolicyPage: React.FC = () => {
     return (
+        <>
+            <SEO path="/privacy-policy" />
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 pt-24 pb-16">
             <div className="mx-auto max-w-4xl px-6 md:px-8">
                 {/* Header */}
@@ -242,6 +245,7 @@ const PrivacyPolicyPage: React.FC = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

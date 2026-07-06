@@ -199,12 +199,7 @@ const ResourcesPage: React.FC = () => {
 
     return (
         <>
-            <SEO
-                title="O Level Bengali Resources - Free Notes, Past Papers & Tips by Rofsan Sir"
-                description="Download free O Level Bengali resources: past papers, notes, study materials, and exam tips by CAIE examiner Rofsan Sir. Boost your preparation."
-                keywords="O Level Bengali resources, Bengali past papers, O Level Bengali notes, CAIE Bengali study materials, free Bengali resources"
-                ogImage="/assets/og/resources-og.svg"
-            />
+            <SEO path="/resources" />
             <div className="animate-fade-in-up min-h-screen pt-24">
             {/* Header Section */}
             <section className="relative overflow-hidden bg-brand-blue-dark py-24 text-white">

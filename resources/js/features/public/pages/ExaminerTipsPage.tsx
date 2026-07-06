@@ -620,12 +620,7 @@ const ExaminerTipsPage: React.FC = () => {
 
     return (
         <>
-            <SEO
-                title="O Level Bengali Examiner Tips - Expert Guidance | Rofsan Sir"
-                description="Get insider tips from CAIE examiner Rofsan Sir. Learn how Cambridge examiners grade papers and maximize your O Level Bengali score."
-                keywords="O Level Bengali tips, CAIE examiner tips, Bengali exam preparation, Cambridge Bengali guidance"
-                ogImage="/assets/og/default-og.jpg"
-            />
+            <SEO path="/tips" />
             <div className="animate-fade-in-up min-h-screen pt-24">
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-brand-blue-dark py-24 text-white">

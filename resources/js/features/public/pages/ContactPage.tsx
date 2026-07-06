@@ -6,12 +6,7 @@ import StructuredData from '../../../components/SEO/StructuredData';
 const ContactPage: React.FC = () => {
     return (
         <>
-            <SEO
-                title="Contact Rofsan Sir - O Level Bengali Classes in Dhaka"
-                description="Get in touch with Rofsan Sir for O Level Bengali coaching in Dhaka. WhatsApp: +8801948116595. Join now for expert guidance from CAIE examiner."
-                keywords="contact rofsan sir, o level bengali classes dhaka, bengali coaching dhaka, rofsan sir contact"
-                ogImage="/assets/og/contact-og.svg"
-            />
+            <SEO path="/contact" />
             <StructuredData type="organization" />
             <div className="min-h-screen bg-slate-50 pt-24">
             {/* Hero Section */}
